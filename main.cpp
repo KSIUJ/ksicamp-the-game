@@ -17,16 +17,16 @@ void finish(GameData& gameData) {
     if (gameData.inventory.empty()) {
         std::cout << "* nic" << std::endl;
     } else {
-      for (std::string item : gameData.inventory) {
+        for (std::string item : gameData.inventory) {
         std::cout << "* " << item << std::endl;
-      }
+        }
     }
 }
 
 int main() {
-    GameData gameData(KSI);
     start();
 
+    GameData gameData(KSI);
     do {
         gameData.room = (gameData.functions[gameData.room])(gameData);
         std::cout << std::endl;
