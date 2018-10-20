@@ -31,3 +31,6 @@
 *.out
 *.app
 ksicamp-the-game
+
+# VSCode
+.vscode/
