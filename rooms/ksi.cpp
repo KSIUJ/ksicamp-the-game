@@ -7,8 +7,7 @@ Room ksi(GameData& gameData) {
               << "Coś musiało pójść bardzo nie tak." << std::endl;
     if (gameData.inventory.find("pizza") == gameData.inventory.end()) {
         std::cout  << "Obok ciebie leżą kawałki niedojedzonej pizzy. " << std::endl
-                   << "Bierzesz jeden?"
-                   << std::endl;
+                   << "Bierzesz jeden?" << std::endl;
         if (yes()) {
             std::cout << "Wziąłeś pizzę i wsadziłeś do kieszeni." << std::endl;
             gameData.inventory.insert("pizza");
@@ -18,5 +17,6 @@ Room ksi(GameData& gameData) {
     }
 
     std::cout << "Wychodzisz na korytarz przed KSI." << std::endl;
+    
     return KORYTARZ;
 }
