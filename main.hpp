@@ -6,29 +6,33 @@
 #include <cstring>
 
 enum Room {
-    KSI, KORYTARZ, SERWEROWNIA, WINDA_PIETRO, WINDA_PARTER, WINDY_TYLNE, GARAZ, ZEWNATRZ, ROOM_SIZE
+    KSI, KORYTARZ, SERWEROWNIA, 
+    WINDA_PIETRO, WINDA_PARTER, WINDY_TYLNE, 
+    GARAZ, ZEWNATRZ,
+    ROOM_SIZE // enum size marker
 };
 
 class GameData;
 
 Room fail(GameData& gameData);
 Room ksi(GameData& gameData);
-// Room korytarz(GameData& gameData);
-// Room serwerownia(GameData& gameData);
-// Room windaPietro(GameData& gameData);
-// Room windaParter(GameData& gameData);
-// Room windyTylne(GameData& gameData);
-// Room garaz(GameData& gameData);
-// Room zewnatrz(GameData& gameData);
+Room korytarz(GameData& gameData);
+Room serwerownia(GameData& gameData);
+Room windaPietro(GameData& gameData);
+Room windaParter(GameData& gameData);
+Room windyTylne(GameData& gameData);
+Room garaz(GameData& gameData);
+Room zewnatrz(GameData& gameData);
 
 class GameData {
 public:
     Room (* functions[ROOM_SIZE])(GameData&);
-    std::set<std::string> inventory;
     bool alive = true;
-    Room room = KSI;
+    std::set<std::string> inventory;
+    Room room;
 
-    GameData() {
+    GameData(Room room) {
+        this->room = room;
         this->functions[KSI] = &ksi;
         this->functions[KORYTARZ] = &fail;
         this->functions[SERWEROWNIA] = &fail;
