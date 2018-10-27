@@ -18,7 +18,7 @@ void finish(GameData& gameData) {
         std::cout << "* nic" << std::endl;
     } else {
         for (std::string item : gameData.inventory) {
-        std::cout << "* " << item << std::endl;
+            std::cout << "* " << item << std::endl;
         }
     }
 }

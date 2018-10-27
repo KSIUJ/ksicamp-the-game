@@ -20,3 +20,4 @@ Room ksi(GameData& gameData) {
     
     return KORYTARZ;
 }
+
