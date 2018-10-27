@@ -34,7 +34,7 @@ public:
     GameData(Room room) {
         this->room = room;
         this->functions[KSI] = &ksi;
-        this->functions[KORYTARZ] = &fail;
+        this->functions[KORYTARZ] = &korytarz;
         this->functions[SERWEROWNIA] = &fail;
         this->functions[WINDA_PIETRO] = &fail;
         this->functions[WINDA_PARTER] = &fail;
