@@ -6,9 +6,15 @@
 #include <cstring>
 
 enum Room {
-    KSI, KORYTARZ, SERWEROWNIA, 
-    WINDA_PIETRO, WINDA_PARTER, WINDY_TYLNE, 
-    GARAZ, ZEWNATRZ,
+    KSI,
+    KORYTARZ,
+    SERWEROWNIA,
+    WC,
+    WINDA_PIETRO,
+    WINDA_PARTER,
+    WINDY_TYLNE,
+    GARAZ,
+    ZEWNATRZ,
     ROOM_SIZE // enum size marker
 };
 
@@ -17,6 +23,7 @@ class GameData;
 Room fail(GameData& gameData);
 Room ksi(GameData& gameData);
 Room korytarz(GameData& gameData);
+Room wc(GameData& gameData);
 Room serwerownia(GameData& gameData);
 Room windaPietro(GameData& gameData);
 Room windaParter(GameData& gameData);
@@ -35,6 +42,7 @@ public:
         this->room = room;
         this->functions[KSI] = &ksi;
         this->functions[KORYTARZ] = &korytarz;
+        this->functions[WC] = &fail;
         this->functions[SERWEROWNIA] = &fail;
         this->functions[WINDA_PIETRO] = &fail;
         this->functions[WINDA_PARTER] = &fail;
