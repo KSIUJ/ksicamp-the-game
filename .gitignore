@@ -34,3 +34,6 @@ ksicamp-the-game
 
 # VSCode
 .vscode/
+
+# Makefile
+makefile
