@@ -9,10 +9,14 @@ class DestinationMap {
     
     public:
         DestinationMap() {
-            destination_map["WC"] = WC;
-            destination_map["Winda"] = WINDA_PIETRO;
-            destination_map["KSI"] = KSI;
+            destination_map["1"] = SERWEROWNIA;
             destination_map["Serwerownia"] = SERWEROWNIA;
+            destination_map["2"] = WC;
+            destination_map["WC"] = WC;
+            destination_map["3"] = WINDA_PIETRO;
+            destination_map["Winda"] = WINDA_PIETRO;
+            destination_map["4"] = KSI;
+            destination_map["KSI"] = KSI;
         }
 
         Room operator[](std::string key){
@@ -26,16 +30,20 @@ class DestinationMap {
 
 static DestinationMap destination_map;
 
+// string tolower(std::string str){
+//     std::string result;
+//     return std::transform(str.begin(), str.end(), )
+// }
+
 Room leave_korytarz() {
     std::string destination;
-    std::locale loc;
 
     while(true){
-        std::cout << "Dokąd dalej? (Skopiuj jedną z tych nazw)" << std::endl
-                    << "Serweronia" << std::endl
-                    << "WC" << std::endl
-                    << "Winda" << std::endl
-                    << "KSI" << std::endl;
+        std::cout << "Dokąd dalej?" << std::endl
+                    << "1) Serweronia" << std::endl
+                    << "2) WC" << std::endl
+                    << "3) Winda" << std::endl
+                    << "4) KSI" << std::endl;
         
         std::cin  >> destination;
         std::cout << "Idziesz w stronę " << destination << std::endl;
