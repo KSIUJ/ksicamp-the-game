@@ -56,4 +56,6 @@ public:
 
 bool yes();
 
+std::string lowercase(std::string str);
+
 #endif //KSI_MAIN_HPP
