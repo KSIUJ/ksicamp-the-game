@@ -1,6 +1,5 @@
 #include <iostream>
 #include <unordered_map>
-#include <algorithm>
 
 #include "../main.hpp"
 
@@ -10,13 +9,13 @@ class DestinationMap {
     public:
         DestinationMap() {
             destination_map["1"] = SERWEROWNIA;
-            destination_map["Serwerownia"] = SERWEROWNIA;
+            destination_map["serwerownia"] = SERWEROWNIA;
             destination_map["2"] = WC;
-            destination_map["WC"] = WC;
+            destination_map["wc"] = WC;
             destination_map["3"] = WINDA_PIETRO;
-            destination_map["Winda"] = WINDA_PIETRO;
+            destination_map["winda"] = WINDA_PIETRO;
             destination_map["4"] = KSI;
-            destination_map["KSI"] = KSI;
+            destination_map["ksi"] = KSI;
         }
 
         Room operator[](std::string key){
@@ -29,11 +28,6 @@ class DestinationMap {
 };
 
 static DestinationMap destination_map;
-
-// string tolower(std::string str){
-//     std::string result;
-//     return std::transform(str.begin(), str.end(), )
-// }
 
 Room leave_korytarz() {
     std::string destination;
@@ -48,7 +42,7 @@ Room leave_korytarz() {
         std::cin  >> destination;
         std::cout << "Idziesz w stronę " << destination << std::endl;
 
-        if(destination_map[destination] != FAIL){
+        if(destination_map[lowercase(destination)] != FAIL){
             return destination_map[destination];
         }
 
