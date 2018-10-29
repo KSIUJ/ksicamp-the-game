@@ -10,7 +10,7 @@ Room fail(GameData& gameData) {
 }
 
 bool yes() {
-    char response;
+    std::string response;
     std::cin >> response;
-    return strchr("YyTt", response) != nullptr;
+    return strchr("YyTt", response[0]) != nullptr;
 }
