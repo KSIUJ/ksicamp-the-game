@@ -31,7 +31,7 @@ Room leave_korytarz() {
     std::locale loc;
 
     while(true){
-        std::cout << "Dokąd dalej?" << std::endl
+        std::cout << "Dokąd dalej? (Skopiuj jedną z tych nazw)" << std::endl
                     << "Serweronia" << std::endl
                     << "WC" << std::endl
                     << "Winda" << std::endl
