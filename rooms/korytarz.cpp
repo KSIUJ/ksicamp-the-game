@@ -9,10 +9,10 @@ class DestinationMap {
     
     public:
         DestinationMap() {
-            destination_map["wc"] = WC;
-            destination_map["winda"] = WINDA_PIETRO;
-            destination_map["ksi"] = KSI;
-            destination_map["serwerownia"] = SERWEROWNIA;
+            destination_map["WC"] = WC;
+            destination_map["Winda"] = WINDA_PIETRO;
+            destination_map["KSI"] = KSI;
+            destination_map["Serwerownia"] = SERWEROWNIA;
         }
 
         Room operator[](std::string key){
