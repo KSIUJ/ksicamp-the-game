@@ -15,7 +15,8 @@ enum Room {
     WINDY_TYLNE,
     GARAZ,
     ZEWNATRZ,
-    ROOM_SIZE // enum size marker
+    ROOM_SIZE, // enum size marker
+    FAIL,
 };
 
 class GameData;
@@ -49,6 +50,7 @@ public:
         this->functions[WINDY_TYLNE] = &fail;
         this->functions[GARAZ] = &fail;
         this->functions[ZEWNATRZ] = &fail;
+        this->functions[FAIL] = &fail;
     }
 };
 
