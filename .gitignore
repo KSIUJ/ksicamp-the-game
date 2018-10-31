@@ -37,3 +37,7 @@ ksicamp-the-game
 
 # Makefile
 makefile
+
+# Vim
+*.swp
+rooms/*.swp

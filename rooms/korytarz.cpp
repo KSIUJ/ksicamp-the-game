@@ -59,7 +59,7 @@ Room korytarz(GameData& gameData) {
         std::cout << "Przed Dziekanem się nie ucieka." << std::endl;
         gameData.alive = false;
     } else {
-        std::cout << "Mówisz, \"Dzień dobry, panie Dziekanie\" "
+        std::cout << "Mówisz, \"Dzień dobry, panie Dziekanie\" " // nie zważając na to, że jest środek nocy
                   << "i przechodzisz koło niego." << std::endl;
                 //   << "Serwerownia jest otwarta. "
                 //   << "Wchodzisz do niej." << std::endl;    
