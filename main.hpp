@@ -15,8 +15,8 @@ enum Room {
     WINDY_TYLNE,
     GARAZ,
     ZEWNATRZ,
-    ROOM_SIZE, // enum size marker
     FAIL,
+    ROOM_SIZE, // enum size marker
 };
 
 class GameData;
