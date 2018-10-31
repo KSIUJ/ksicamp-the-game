@@ -15,8 +15,8 @@ enum Room {
     WINDY_TYLNE,
     GARAZ,
     ZEWNATRZ,
-    ROOM_SIZE, // enum size marker
     FAIL,
+    ROOM_SIZE, // enum size marker
 };
 
 class GameData;
@@ -58,5 +58,8 @@ public:
 bool yes();
 
 std::string lowercase(std::string str);
+
+void wait_s (unsigned int seconds);
+void wait_ms (unsigned int milliseconds);
 
 #endif //KSI_MAIN_HPP
