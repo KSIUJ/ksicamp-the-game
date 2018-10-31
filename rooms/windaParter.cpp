@@ -6,16 +6,21 @@
 
 Room windaParter (GameData& gameData)
 {
-	std::cout << "Jesteś na parterze, niedaleko windy." << std::endl
-				<< "Słyszysz niepokojące odgłosy";
+	std::cout << "Jesteś na parterze, niedaleko windy."; wait_s(2); std::cout << std::endl; 
+	std::cout << "Słyszysz niepokojące odgłosy ";
+
+	wait_s(2);
 
 	for (int i=3; i>0; --i) {
 		std::cout << "."; 
-		wait_s(1);
+		wait_ms(200);
 	}
 
-	std::cout << std::endl;
 
+	wait_s(4);
+
+	std::cout << std::endl;
+	std::cout << std::endl;
 
 	std::cout << "                             `/shmNNNNNmdyo:`                                   " << std::endl;
 	std::cout << "                          `+dMNho/--.--:+shNMh:                                 " << std::endl;
@@ -42,24 +47,28 @@ Room windaParter (GameData& gameData)
 	std::cout << "                  sMd-..oMN....dMy.......dMh...............----oMN:/ohNMh-      " << std::endl;
 	std::cout << "                  `omMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNmhs/`        ";
 	
-	wait_s(5);
+	wait_s(2);
 
-	std::cout << std::endl << "TO WŚCIEKŁY ZAIONC ";
+	std::cout << std::endl << std::endl << "TO WŚCIEKŁY ZAIONC ";
+
+	wait_s(1);
 	
 	for (int i=30; i>0; --i) {
-		wait_ms(50);
+		wait_ms(20);
 		std::cout << "!";
 	}
 
-	for (int i=6; i>0; --i) {
-		wait_ms(100);
+	for (int i=9; i>0; --i) {
+		wait_ms(20);
 		std::cout << "1";
 	}
 
-	for (int i=6; i>0; --i) {
-		wait_ms(250);
+	for (int i=8; i>0; --i) {
+		wait_ms(20);
 		std::cout << "@";
 	}
+
+	wait_s(2);
 
 	std::cout << std:: endl;
 

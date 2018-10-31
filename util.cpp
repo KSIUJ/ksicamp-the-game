@@ -13,6 +13,7 @@ Room fail(GameData& gameData) {
 }
 
 bool yes() {
+	std::cout << ">"; // prompt, użytkownik wie że czas na jego ruch
     std::string response;
     std::cin >> response;
     return strchr("YyTt", response[0]) != nullptr;
