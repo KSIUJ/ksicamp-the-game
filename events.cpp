@@ -9,6 +9,7 @@
  *
  ****************************************/
 
+#include <iostream>
 #include "events.hpp"
 
 void dziekan_event (GameData& gameData) {
