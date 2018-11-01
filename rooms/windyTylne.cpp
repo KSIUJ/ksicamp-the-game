@@ -9,36 +9,37 @@ void start(GameData& gameData){
 }
 
 Room wybor_dzialania(GameData& gameData, short i_c){
-    short wybor;
-    std::cout << "Co robisz?" << std::endl
-              << "1. Korzystam z windy i zjeżdżam na parter" << std::endl
+    int wybor;
+    while(true){
+        std::cout << "Co robisz?" << std::endl
+              << "1. Korzystam z windy i zjeżdżam na parter" << std::endl //TODO: Add lift repair minigame
               << "2. Idę do windy z przodu budynku" << std::endl
               << "3. Idę do biblioteki" << std::endl
-              << "4. Idę do garażu (i robię przyps)" << std::endl;
+              << "4. Idę do garażu (i robię przyps)" << std::endl
+              << "5. Wracam na korytarz" << std::endl;
     
-    bool wybor_validation;
-    do{
-        wybor_validation = true;
-
         std::cout << "> ";
         std::cin >> wybor;
-        
+        std::cout << std::endl;
+
         switch(wybor){
         case 1:
             if(!gameData.winda_repaired) {
                 if(i_c == 8){
                     std::cout << "Przypominasz sobie o chińskich korzeniach i stwierdzasz, że za 8 sprawdzeniem winda na pewno będzie działać"
-                              << std::endl
-                              << "Naciskasz przycisk przywołania windy i w tym momencie śmiertelnie razi Cię prąd"
+                              << std::endl;
+                    wait_s(1);
+                    std::cout << "Naciskasz przycisk przywołania windy i w tym momencie śmiertelnie razi Cię prąd"
                               << std::endl;
                     gameData.alive = false;
                     return ZEWNATRZ;
                 }
                 
-                std::cout << "Ślepy, czy głupi? Popsuta jest.";
+                std::cout << "Ślepy, czy głupi? Popsuta jest." << std::endl;
+                wait_s(1);
                 i_c++;
                 
-                wybor_dzialania(gameData, i_c);
+                break;
             } else return WINDA_PARTER;
         
         case 2:
@@ -50,15 +51,18 @@ Room wybor_dzialania(GameData& gameData, short i_c){
         case 4:
             return GARAZ;
 
+        case 5:
+            return KORYTARZ;
+
         default:
-            wybor_validation == false;
-            std::cout << "To nie jest miejsce, którego szukasz" << std::endl
+            std::cout << std::endl
+                      << "To nie jest miejsce, którego szukasz" << std::endl
                       << "*Obi-Wan Kenobi's hand wave*" << std::endl
                       << "Wybierz raz jeszcze..." << std::endl
-                      << "...tym razem mądrze, jeśli można:" << std::endl;
+                      << "...tym razem mądrze, jeśli można." << std::endl << std::endl;
             break;
         }
-    } while(wybor_validation == false);
+    }
 }
 
 Room windyTylne (GameData& gameData) {
