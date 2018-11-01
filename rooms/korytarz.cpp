@@ -2,6 +2,7 @@
 #include <unordered_map>
 
 #include "../main.hpp"
+#include "../events.hpp"
 
 class DestinationMap {
     std::unordered_map<std::string, Room> destination_map;
@@ -51,20 +52,9 @@ Room leave_korytarz() {
 }
 
 Room korytarz(GameData& gameData) {
-
-    std::cout << "Idziesz przez korytarz. Spotykasz Dziekana." << std::endl
-            << "Uciekasz przed nim?" << std::endl;
-
-    if(yes()) {
-        std::cout << "Przed Dziekanem się nie ucieka." << std::endl;
-        gameData.alive = false;
-    } else {
-        std::cout << "Mówisz, \"Dzień dobry, panie Dziekanie\" " // nie zważając na to, że jest środek nocy
-                  << "i przechodzisz koło niego." << std::endl;
-                //   << "Serwerownia jest otwarta. "
-                //   << "Wchodzisz do niej." << std::endl;    
-        return leave_korytarz();    
-    }
-
-    return KORYTARZ;
+	dziekan_event(gameData);
+	if (gameData.alive)
+		return leave_korytarz();
+	else
+		return KORYTARZ;
 }
