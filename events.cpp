@@ -37,18 +37,16 @@ void zaionc_event (GameData& gameData) {
 	if (gameData.zaionc)	// zaionc już nas goni.
 		return;
 
-	wait_s(2); std::cout << std::endl; 
+	std::cout << std::endl; 
 	std::cout << "Słyszysz niepokojące odgłosy ";
 
 	wait_s(2);
 
 	for (int i=3; i>0; --i) {
 		std::cout << "."; 
-		wait_ms(200);
+		wait_s(1);
 	}
 
-
-	wait_s(4);
 
 	std::cout << std::endl;
 	std::cout << std::endl;
@@ -90,19 +88,19 @@ void zaionc_event (GameData& gameData) {
 	}
 
 	for (int i=9; i>0; --i) {
-		wait_ms(20);
+		wait_ms(10);
 		std::cout << "1";
 	}
 
 	for (int i=8; i>0; --i) {
-		wait_ms(20);
+		wait_ms(10);
 		std::cout << "@";
 	}
 
 	wait_s(2);
 
 	std::cout << std:: endl;
-
+	std::cout << std:: endl;
 
 	gameData.zaionc = true;
 }

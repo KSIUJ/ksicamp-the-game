@@ -52,7 +52,14 @@ Room leave_korytarz() {
 }
 
 Room korytarz(GameData& gameData) {
-	std::cout << "Idziesz przez korytarz." << std::endl; 
+
+	std::cout << (gameData.zaionc ? "Goni Cię zając. Uciekasz" : "Idziesz");
+	std::cout << " przez korytarz." << std::endl; 
+
 	dziekan_event(gameData);
-	return leave_korytarz();
+
+	if (gameData.alive)
+		return leave_korytarz();
+	else 
+		return KORYTARZ;
 }
