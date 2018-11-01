@@ -34,6 +34,9 @@ void dziekan_event (GameData& gameData) {
 
 void zaionc_event (GameData& gameData) {
 
+	if (gameData.zaionc)	// zaionc już nas goni.
+		return;
+
 	wait_s(2); std::cout << std::endl; 
 	std::cout << "Słyszysz niepokojące odgłosy ";
 
