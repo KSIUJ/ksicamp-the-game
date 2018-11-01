@@ -23,6 +23,7 @@ Room windaParter (GameData& gameData)
 		else {
 			std::cout << "Zaionc Cię dopadł." << std::endl;
 			gameData.alive = false;
+			return FAIL;
 		}
 	}
 
