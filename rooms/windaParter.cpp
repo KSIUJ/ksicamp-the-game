@@ -8,15 +8,10 @@ Room windaParter (GameData& gameData)
 {
 
 	if (gameData.zaionc) {
-		std::cout << "Próbujesz zawrócić, ale zając Cię dopada" << std::endl;
+		std::cout << "Próbujesz zawrócić, ale zając Cię dopada." << std::endl;
 		gameData.alive = false;
 		return WINDA_PARTER;
 	}
-
-
-	std::cout << "Jesteś na parterze."; 
-	wait_s(2);
-	std::cout << std::endl;
 
 	zaionc_event(gameData);
 		
@@ -29,6 +24,19 @@ Room windaParter (GameData& gameData)
 			std::cout << "Zaionc Cię dopadł." << std::endl;
 			gameData.alive = false;
 		}
+	}
+
+	std::cout << "Jesteś na parterze."; 
+	wait_s(2);
+	std::cout << std::endl;
+
+	std::cout << "Czy chcesz wyjść na zewnątrz?" << std::endl;
+	if (yes())
+		return ZEWNATRZ;
+	else {
+		std::cout << "Czy chcesz wrócić na korytarz?" << std::endl;
+		if (yes())
+			return KORYTARZ;
 	}
 
 	return FAIL; 
