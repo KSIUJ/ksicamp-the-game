@@ -16,6 +16,8 @@ class DestinationMap {
             destination_map["winda"] = WINDA_PIETRO;
             destination_map["4"] = KSI;
             destination_map["ksi"] = KSI;
+            destination_map["5"] = WINDY_TYLNE;
+            destination_map["windy tylne"] = WINDY_TYLNE;
         }
 
         Room operator[](std::string key){
@@ -37,7 +39,8 @@ Room leave_korytarz() {
                     << "1) Serwerownia" << std::endl
                     << "2) WC" << std::endl
                     << "3) Winda" << std::endl
-                    << "4) KSI" << std::endl;
+                    << "4) KSI" << std::endl
+                    << "5) Windy tylne" << std::endl;
         
         std::cin  >> destination;
         std::cout << "Idziesz w stronę " << destination << std::endl;
