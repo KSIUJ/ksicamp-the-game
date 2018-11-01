@@ -9,7 +9,7 @@ void start(GameData& gameData){
 }
 
 Room wybor_dzialania(GameData& gameData, short i_c){
-    int wybor;
+    char wybor;
     while(true){
         std::cout << "Co robisz?" << std::endl
               << "1. Korzystam z windy i zjeżdżam na parter" << std::endl //TODO: Add lift repair minigame
@@ -23,7 +23,7 @@ Room wybor_dzialania(GameData& gameData, short i_c){
         std::cout << std::endl;
 
         switch(wybor){
-        case 1:
+        case '1':
             if(!gameData.winda_repaired) {
                 if(i_c == 8){
                     std::cout << "Przypominasz sobie o chińskich korzeniach i stwierdzasz, że za 8 sprawdzeniem winda na pewno będzie działać"
@@ -42,16 +42,16 @@ Room wybor_dzialania(GameData& gameData, short i_c){
                 break;
             } else return WINDA_PARTER;
         
-        case 2:
+        case '2':
             return WINDA_PIETRO;
 
-        case 3:
+        case '3':
             return BIBLIOTEKA;
 
-        case 4:
+        case '4':
             return GARAZ;
 
-        case 5:
+        case '5':
             return KORYTARZ;
 
         default:
