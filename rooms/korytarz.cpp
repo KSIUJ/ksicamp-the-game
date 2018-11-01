@@ -34,7 +34,7 @@ Room leave_korytarz() {
 
     while(true){
         std::cout << "Dokąd dalej?" << std::endl
-                    << "1) Serweronia" << std::endl
+                    << "1) Serwerownia" << std::endl
                     << "2) WC" << std::endl
                     << "3) Winda" << std::endl
                     << "4) KSI" << std::endl;
