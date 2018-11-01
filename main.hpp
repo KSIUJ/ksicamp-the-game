@@ -35,7 +35,7 @@ Room zewnatrz(GameData& gameData);
 class GameData {
 public:
     Room (* functions[ROOM_SIZE])(GameData&);
-    bool alive = true;
+	bool alive = true;
 	bool zaionc = false;
 	bool dziekan_spotted = false;
     std::set<std::string> inventory;
