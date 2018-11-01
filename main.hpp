@@ -37,6 +37,7 @@ public:
     Room (* functions[ROOM_SIZE])(GameData&);
 	bool alive = true;
 	bool zaionc = false;
+	bool zaionc_KSI = false;
 	bool dziekan_spotted = false;
     std::set<std::string> inventory;
     Room room;
