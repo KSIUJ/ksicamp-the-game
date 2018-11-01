@@ -8,7 +8,7 @@ void start(GameData& gameData){
               << std::endl;
 }
 
-void wybor_dzialania(GameData& gameData, short i_c){
+Room wybor_dzialania(GameData& gameData, short i_c){
     short wybor;
     std::cout << "Co robisz?" << std::endl
               << "1. Korzystam z windy i zjeżdżam na parter" << std::endl
@@ -65,7 +65,7 @@ Room windyTylne (GameData& gameData) {
     start(gameData);
 
     short idiot_counter=0;
-    wybor_dzialania(gameData, idiot_counter);
+    return wybor_dzialania(gameData, idiot_counter);
     
     return KORYTARZ;
 }
