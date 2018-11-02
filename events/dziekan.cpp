@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "main.hpp"
+#include "../main.hpp"
 
 void dziekan_event (GameData& gameData) {
 
