@@ -52,19 +52,29 @@ Room leave_korytarz() {
 
 Room korytarz(GameData& gameData) {
 
-    std::cout << "Idziesz przez korytarz. Spotykasz Dziekana." << std::endl
+	std::cout << (gameData.zaionc ? "Goni Cię zając. Uciekasz" : "Idziesz");
+	std::cout << " przez korytarz." << std::endl; 
+
+	if (!gameData.dziekan_spotted) {
+
+		std::cout << "Spotykasz Dziekana." << std::endl
             << "Uciekasz przed nim?" << std::endl;
 
-    if(yes()) {
-        std::cout << "Przed Dziekanem się nie ucieka." << std::endl;
-        gameData.alive = false;
-    } else {
-        std::cout << "Mówisz, \"Dzień dobry, panie Dziekanie\" " // nie zważając na to, że jest środek nocy
-                  << "i przechodzisz koło niego." << std::endl;
-                //   << "Serwerownia jest otwarta. "
-                //   << "Wchodzisz do niej." << std::endl;    
-        return leave_korytarz();    
-    }
+	    if(yes()) {
+	        std::cout << "Przed Dziekanem się nie ucieka." << std::endl;
+	        gameData.alive = false;
+	    } else {
+	        std::cout << "Mówisz, \"Dzień dobry, panie Dziekanie\" "
+	                  << "i przechodzisz koło niego." << std::endl;
+	    }
 
-    return KORYTARZ;
+		std::cout << std::endl;
+		gameData.dziekan_spotted = true;
+	}
+
+
+	if (gameData.alive)
+		return leave_korytarz();
+	else 
+		return KORYTARZ;
 }
