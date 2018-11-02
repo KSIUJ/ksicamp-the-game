@@ -35,8 +35,9 @@ Room zewnatrz(GameData& gameData);
 class GameData {
 public:
     Room (* functions[ROOM_SIZE])(GameData&);
-    bool alive = true;
+	bool alive = true;
 	bool zaionc = false;
+	bool zaionc_KSI = false;
 	bool dziekan_spotted = false;
     std::set<std::string> inventory;
     Room room;
@@ -62,5 +63,8 @@ std::string lowercase(std::string str);
 
 void wait_s (unsigned int seconds);
 void wait_ms (unsigned int milliseconds);
+
+void dziekan_event (GameData& gameData);
+void zaionc_event (GameData& gameData);
 
 #endif //KSI_MAIN_HPP
