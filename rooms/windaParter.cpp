@@ -1,8 +1,6 @@
 #include <iostream>
 
 #include "../main.hpp"
-#include "../events.hpp"
-
 
 Room windaParter (GameData& gameData)
 {
