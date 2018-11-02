@@ -10,7 +10,6 @@ void zaionc_event (GameData& gameData) {
 	if (gameData.zaionc_KSI)
 		return;
 
-	std::cout << std::endl; 
 	std::cout << "Słyszysz niepokojące odgłosy ";
 
 	wait_s(2);
