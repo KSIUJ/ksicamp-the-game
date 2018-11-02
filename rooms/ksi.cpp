@@ -20,9 +20,8 @@ Room ksi(GameData& gameData) {
 	}
 
 	if (gameData.zaionc_KSI) {
-		std::cout << "Na środku KSI leży martwy żul. [*]." << std::endl;
-		std::cout << "Zaionc jest zajęty resztkami mózgu żula." << std::endl;
-		std::cout << "Nie przejawia zainteresowania Tobą." << std::endl;
+		std::cout << "Żul z zaioncem śpią na kanapie." << std::endl;
+		std::cout << "Chyba lepiej ich nie budzić." << std::endl;
 	} else {
 	    std::cout << "Jesteś w KSI. Słońce zaszło dawno temu. " 
               << "Coś musiało pójść bardzo nie tak." << std::endl;
