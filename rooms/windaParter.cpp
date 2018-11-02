@@ -20,6 +20,7 @@ Room windaParter (GameData& gameData)
 			return KORYTARZ;
 		else {
 			std::cout << "Zaionc Cię dopadł." << std::endl;
+			wait_s(2);
 			gameData.alive = false;
 			return FAIL;
 		}
@@ -36,6 +37,8 @@ Room windaParter (GameData& gameData)
 		std::cout << "Czy chcesz wrócić na korytarz?" << std::endl;
 		if (yes())
 			return KORYTARZ;
+		else
+			return WINDA_PARTER;
 	}
 
 	return FAIL; 
