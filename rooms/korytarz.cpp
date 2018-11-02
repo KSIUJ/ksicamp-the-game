@@ -2,7 +2,6 @@
 #include <unordered_map>
 
 #include "../main.hpp"
-#include "../events.hpp"
 
 class DestinationMap {
     std::unordered_map<std::string, Room> destination_map;

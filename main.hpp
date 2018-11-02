@@ -64,4 +64,7 @@ std::string lowercase(std::string str);
 void wait_s (unsigned int seconds);
 void wait_ms (unsigned int milliseconds);
 
+void dziekan_event (GameData& gameData);
+void zaionc_event (GameData& gameData);
+
 #endif //KSI_MAIN_HPP
