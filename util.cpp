@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <chrono> // std::chrono::microseconds
 #include <thread> // std::this_thread::sleep_for;
+#include <cstdlib>
 
 #include "main.hpp"
 
@@ -50,4 +51,15 @@ void print_text (std::string text){
         wait_ms(20);
     }
     std::cout << std::endl;
+}
+
+
+void clear_screen()
+{
+#ifdef WINDOWS
+    std::system("cls");
+#else
+    // Assume POSIX
+    std::system ("clear");
+#endif
 }
