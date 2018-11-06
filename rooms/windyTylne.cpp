@@ -10,7 +10,7 @@ void start(GameData& gameData){
 }
 
 bool lift_repairing_game(){
-
+    return false;
 };
 
 Room wybor_dzialania(GameData& gameData, short i_c){
@@ -38,10 +38,10 @@ Room wybor_dzialania(GameData& gameData, short i_c){
                     else if (yes_arg("1")){
                         if(i_c == 8){
                             std::cout << "Przypominasz sobie o chińskich korzeniach i stwierdzasz, że za 8 sprawdzeniem winda na pewno będzie działać"
-                                    << std::endl;
+                                      << std::endl;
                             wait_ms(500);
                             std::cout << "Naciskasz przycisk przywołania windy i w tym momencie śmiertelnie razi Cię prąd"
-                                    << std::endl;
+                                      << std::endl;
                             wait_s(1);
                             gameData.alive = false;
                             return ZEWNATRZ;
@@ -75,7 +75,7 @@ Room wybor_dzialania(GameData& gameData, short i_c){
 }
 
 Room windyTylne (GameData& gameData) {
-    print_text("Testowy tekst o tekstowym tekście!");
+    print_text("Testowy tekst o testowym tekście!");
 
     start(gameData);
 
