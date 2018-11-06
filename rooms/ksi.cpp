@@ -15,7 +15,7 @@ Room ksi(GameData& gameData) {
     } else {
         std::cout << "Nic innego tu nie ma. Jakiś żul śpi w na kanapie w kącie." << std::endl;
     }
-
+    clear_screen();
     std::cout << "Wychodzisz na korytarz przed KSI." << std::endl;
     
     return KORYTARZ;
