@@ -38,7 +38,6 @@ $(builddir)/%.c.d: $(srcdir)/%.c
 	@echo Generating dependency list for $<
 	@mkdir -p "$(@D)"
 	$(CC) -MM -MP $(CPREFLAGS) $< | sed -r -e "1 s|^|$(@D)/|" -e "s^.o:^.o $@ :^" > $@
-	@echo -n "$(@D)/" | cat - $@ > $@
 
 $(builddir)/%.cxx.d: $(srcdir)/%.cpp
 	@echo Generating dependency list for $<
