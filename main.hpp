@@ -69,5 +69,6 @@ void wait_s (unsigned int seconds);
 void wait_ms (unsigned int milliseconds);
 
 void print_text (std::string text);
+void clear_screen();
 
 #endif //KSI_MAIN_HPP

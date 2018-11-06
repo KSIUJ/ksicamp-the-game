@@ -11,8 +11,24 @@ void start(GameData& gameData){
               << std::endl;
 }
 
-bool lift_repairing_game(){
-    return false;
+bool lift_repairing_game(GameData& gameData){                    //TODO: Add minigame
+    std::cout << "Po chwili dochodzisz do wniosku, że bez ściągnięcia zewnętrznej osłony nic nie zdziałasz" << std::endl;
+    if(gameData.inventory.find("śrubokręt") != gameData.inventory.end()){
+        std::cout << "Odkręcasz śrubki trzymające ochronną płytkę i ostrożnie ją ściągasz podważając śrubokrętem" << std::endl
+                  << "Widzisz porwane kable bez izolacji, które czasami się stykając tworzą efektowne zwarcia" << std::endl
+                  << "Co robisz?" << std::endl
+                  << "1. Naprawiam dalej" << std::endl
+                  << "2. Odpuszczam i przykręcam płytkę z powrotem" << std::endl;
+
+        if(yes_arg("1")){
+            std::cout << "Po chwili analizowania kabli stwierdzasz, że jak je poprzesuwasz i odpowiednio połączysz"
+                      << " to przyciski powinny zacząć działać" << std::endl;
+            
+        } else return false;
+    } else {
+        std::cout<< "Niestety, ale nie masz potrzebnego narzędzia do tego, wróć później jak je zdobędziesz" << std::endl;
+        return false;
+    }
 };
 
 Room wybor_dzialania(GameData& gameData, short i_c){
@@ -36,7 +52,7 @@ Room wybor_dzialania(GameData& gameData, short i_c){
                             << "2. Mam to w dupie i próbuję użyć windy" << std::endl;
                     
                     do{
-                        if(yes_arg("1"))    if(lift_repairing_game()) gameData.winda_repaired = true;
+                        if(yes_arg("1"))    if(lift_repairing_game(gameData)) gameData.winda_repaired = true;
                         
                         else if (yes_arg("1")){
                             if(i_c == 8){
@@ -104,7 +120,7 @@ Room wybor_dzialania(GameData& gameData, short i_c){
 
             else if(yes_arg("5")) return KORYTARZ;
             
-            else {                                      //TODO: Add waving "hand"
+            else {
                 std::cout << "Twoje niezdecydowanie działa na korzyść zaionca" << std::endl;
                 gameData.alive=false;
                 return ZEWNATRZ;
