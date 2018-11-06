@@ -9,7 +9,9 @@ void start(GameData& gameData){
               << std::endl;
 }
 
-bool lift_repairing_game(){};
+bool lift_repairing_game(){
+
+};
 
 Room wybor_dzialania(GameData& gameData, short i_c){
     std::string wybor;
@@ -35,18 +37,13 @@ Room wybor_dzialania(GameData& gameData, short i_c){
                           << "2. Mam to w dupie i próbuję użyć windy" << std::endl;
                 
                 do{
-                    std::cout << "> ";
-                    wybor = "";
-                    std::cin >> wybor;
-                    std::cout << std::endl;
-
-                    if(wybor == "1") lift_repairing_game() ? gameData.winda_repaired = true : /* Co TU? */ ;
+                    if(yes_arg("1"))    if(lift_repairing_game()) gameData.winda_repaired = true;
                     
-                    else if (wybor == "2"){
+                    else if (yes_arg("1")){
                         if(i_c == 8){
                             std::cout << "Przypominasz sobie o chińskich korzeniach i stwierdzasz, że za 8 sprawdzeniem winda na pewno będzie działać"
                                     << std::endl;
-                            wait_s(1);
+                            wait_ms(500);
                             std::cout << "Naciskasz przycisk przywołania windy i w tym momencie śmiertelnie razi Cię prąd"
                                     << std::endl;
                             wait_s(1);
@@ -58,7 +55,7 @@ Room wybor_dzialania(GameData& gameData, short i_c){
                         wait_s(1);
                         i_c++;
                     } else {
-
+                        std::cout << "No debil no" << std::endl;
                     }
                 }while (wybor != "1" && wybor != "2");
             } else return WINDA_PARTER;

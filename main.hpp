@@ -61,6 +61,7 @@ public:
 };
 
 bool yes();
+bool yes_arg(std::string s);
 
 std::string lowercase(std::string str);
 

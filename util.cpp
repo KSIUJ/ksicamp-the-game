@@ -36,3 +36,10 @@ void wait_ms (unsigned int millisecs) {	// wstrzymuje wątek
 	std::cout.flush();					// na millisecs milisekund 
 	std::this_thread::sleep_for(std::chrono::milliseconds(millisecs));
 }
+
+bool yes_arg(std::string s) {
+	std::cout << ">"; // prompt, użytkownik wie że czas na jego ruch
+    std::string response;
+    std::cin >> response;
+    return strchr(s.c_str(), response[0]) != nullptr;
+}
