@@ -23,12 +23,8 @@ Room wybor_dzialania(GameData& gameData, short i_c){
                   << "3. Idę do biblioteki" << std::endl
                   << "4. Idę do garażu (i robię przyps)" << std::endl
                   << "5. Wracam na korytarz" << std::endl;
-    
-        std::cout << "> ";
-        std::cin >> wybor;
-        std::cout << std::endl;
 
-        if(wybor == "1"){
+        if(yes_arg("1"){
             if(!gameData.winda_repaired) {
                 std::cout << "Widzisz, migotające co jakiś czas, podświetlenie przycisku przywołania windy o jasnoniebieskim kolorze" << std::endl
                           << "Po przyjrzeniu się zauważasz, że w środku musi być jakieś zwarcie" << std::endl << std::endl
@@ -60,15 +56,15 @@ Room wybor_dzialania(GameData& gameData, short i_c){
                 }while (wybor != "1" && wybor != "2");
             } else return WINDA_PARTER;
         
-        } else if(wybor == "2") return WINDA_PIETRO;
+        } else if(yes_arg("2")) return WINDA_PIETRO;
 
-        else if(wybor == "3") return BIBLIOTEKA;
+        else if(yes_arg("3")) return BIBLIOTEKA;
 
-        else if(wybor == "4") return GARAZ;
+        else if(yes_arg("4")) return GARAZ;
 
-        else if(wybor == "5") return KORYTARZ;
+        else if(yes_arg("5")) return KORYTARZ;
         
-        else { 
+        else {                                      //TODO: Add waving "hand"
             std::cout << std::endl
                       << "To nie jest miejsce, którego szukasz" << std::endl
                       << "*Obi-Wan Kenobi's hand wave*" << std::endl
