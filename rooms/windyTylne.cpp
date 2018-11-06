@@ -9,12 +9,14 @@ void start(GameData& gameData){
               << std::endl;
 }
 
+bool lift_repairing_game(){};
+
 Room wybor_dzialania(GameData& gameData, short i_c){
     std::string wybor;
     while(true){
         std::cout << "Co robisz?" << std::endl;
         wait_ms(200);
-        std::cout << "1. Korzystam z windy i zjeżdżam na parter" << std::endl //TODO: Add lift repair minigame
+        std::cout << (gameData.winda_repaired ? "1. Korzystam z windy i zjeżdżam na parter" : "1. Podchodzę do windy, by zobaczyć czemu nie działa") << std::endl
                   << "2. Idę do windy z przodu budynku" << std::endl
                   << "3. Idę do biblioteki" << std::endl
                   << "4. Idę do garażu (i robię przyps)" << std::endl
@@ -26,20 +28,39 @@ Room wybor_dzialania(GameData& gameData, short i_c){
 
         if(wybor == "1"){
             if(!gameData.winda_repaired) {
-                if(i_c == 8){
-                    std::cout << "Przypominasz sobie o chińskich korzeniach i stwierdzasz, że za 8 sprawdzeniem winda na pewno będzie działać"
-                              << std::endl;
-                    wait_s(1);
-                    std::cout << "Naciskasz przycisk przywołania windy i w tym momencie śmiertelnie razi Cię prąd"
-                              << std::endl;
-                    wait_s(1);
-                    gameData.alive = false;
-                    return ZEWNATRZ;
-                }
+                std::cout << "Widzisz, migotające co jakiś czas, podświetlenie przycisku przywołania windy o jasnoniebieskim kolorze" << std::endl
+                          << "Po przyjrzeniu się zauważasz, że w środku musi być jakieś zwarcie" << std::endl << std::endl
+                          << "Co robisz?" << std::endl
+                          << "1. Próbuję naprawić" << std::endl
+                          << "2. Mam to w dupie i próbuję użyć windy" << std::endl;
                 
-                std::cout << "Ślepy, czy głupi? Popsuta jest." << std::endl;
-                wait_s(1);
-                i_c++;
+                do{
+                    std::cout << "> ";
+                    wybor = "";
+                    std::cin >> wybor;
+                    std::cout << std::endl;
+
+                    if(wybor == "1") lift_repairing_game() ? gameData.winda_repaired = true : /* Co TU? */ ;
+                    
+                    else if (wybor == "2"){
+                        if(i_c == 8){
+                            std::cout << "Przypominasz sobie o chińskich korzeniach i stwierdzasz, że za 8 sprawdzeniem winda na pewno będzie działać"
+                                    << std::endl;
+                            wait_s(1);
+                            std::cout << "Naciskasz przycisk przywołania windy i w tym momencie śmiertelnie razi Cię prąd"
+                                    << std::endl;
+                            wait_s(1);
+                            gameData.alive = false;
+                            return ZEWNATRZ;
+                        }
+                        
+                        std::cout << "Ślepy, czy głupi? Popsuta jest." << std::endl;
+                        wait_s(1);
+                        i_c++;
+                    } else {
+
+                    }
+                }while (wybor != "1" && wybor != "2");
             } else return WINDA_PARTER;
         
         } else if(wybor == "2") return WINDA_PIETRO;
