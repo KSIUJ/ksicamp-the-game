@@ -67,4 +67,6 @@ void wait_ms (unsigned int milliseconds);
 void dziekan_event (GameData& gameData);
 void zaionc_event (GameData& gameData);
 
+void print_text (std::string text);
+
 #endif //KSI_MAIN_HPP
