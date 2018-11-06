@@ -5,10 +5,17 @@
 
 #include "../main.hpp"
 
+const short minigame_row = 3;
+const short minigame_col = 3;
+
 void start(GameData& gameData){
     std::cout << "Przechodzisz do tylnej strony budynku i widzisz " 
               << (gameData.winda_repaired ? "naprawioną przez siebę windę " : "windę, która sprawia wrażenie niedziałającej")
               << std::endl;
+}
+
+void draw_minigame(char k[][minigame_col+2], short off[minigame_col]){
+    std::cout << "Not yet implemented" << std::endl;
 }
 
 bool lift_repairing_game(GameData& gameData){                    //TODO: Add minigame
@@ -24,6 +31,19 @@ bool lift_repairing_game(GameData& gameData){                    //TODO: Add min
             std::cout << "Po chwili analizowania kabli stwierdzasz, że jak je poprzesuwasz i odpowiednio połączysz"
                       << " to przyciski powinny zacząć działać" << std::endl;
             
+            bool kable_poprawnie = false;
+            bool ruch = false;
+
+            char kable [minigame_row][minigame_col+2] {};
+            short offset [minigame_col] {};
+
+            while(kable_poprawnie){
+                while(!ruch){
+                    clear_screen();
+                    draw_minigame(kable, offset);
+                }
+                
+            }
         } else return false;
     } else {
         std::cout<< "Niestety, ale nie masz potrzebnego narzędzia do tego, wróć później jak je zdobędziesz" << std::endl;
