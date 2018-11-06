@@ -13,7 +13,7 @@ Room fail(GameData& gameData) {
 }
 
 bool yes() {
-	std::cout << ">"; // prompt, użytkownik wie że czas na jego ruch
+	std::cout << "> "; // prompt, użytkownik wie że czas na jego ruch
     std::string response;
     std::cin >> response;
     return strchr("YyTt", response[0]) != nullptr;
@@ -38,7 +38,7 @@ void wait_ms (unsigned int millisecs) {	// wstrzymuje wątek
 }
 
 bool yes_arg(std::string s) {
-	std::cout << ">"; // prompt, użytkownik wie że czas na jego ruch
+	std::cout << "> "; // prompt, użytkownik wie że czas na jego ruch
     std::string response;
     std::cin >> response;
     return strchr(s.c_str(), response[0]) != nullptr;
