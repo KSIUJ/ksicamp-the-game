@@ -43,3 +43,11 @@ bool yes_arg(std::string s) {
     std::cin >> response;
     return strchr(s.c_str(), response[0]) != nullptr;
 }
+
+void print_text (std::string text){
+    for(int i=0; i < text.length(); i++){
+        std::cout << text[i];
+        wait_ms(20);
+    }
+    std::cout << std::endl;
+}

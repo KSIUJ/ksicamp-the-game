@@ -24,7 +24,7 @@ Room wybor_dzialania(GameData& gameData, short i_c){
                   << "4. Idę do garażu (i robię przyps)" << std::endl
                   << "5. Wracam na korytarz" << std::endl;
 
-        if(yes_arg("1"){
+        if(yes_arg("1")){
             if(!gameData.winda_repaired) {
                 std::cout << "Widzisz, migotające co jakiś czas, podświetlenie przycisku przywołania windy o jasnoniebieskim kolorze" << std::endl
                           << "Po przyjrzeniu się zauważasz, że w środku musi być jakieś zwarcie" << std::endl << std::endl
@@ -51,7 +51,7 @@ Room wybor_dzialania(GameData& gameData, short i_c){
                         wait_s(1);
                         i_c++;
                     } else {
-                        std::cout << "No debil no" << std::endl;
+                        std::cout << "No debil no" << std::endl << std::endl;
                     }
                 }while (wybor != "1" && wybor != "2");
             } else return WINDA_PARTER;
@@ -65,7 +65,7 @@ Room wybor_dzialania(GameData& gameData, short i_c){
         else if(yes_arg("5")) return KORYTARZ;
         
         else {                                      //TODO: Add waving "hand"
-            std::cout << std::endl
+            std::cout << std::endl << std::endl
                       << "To nie jest miejsce, którego szukasz" << std::endl
                       << "*Obi-Wan Kenobi's hand wave*" << std::endl
                       << "Wybierz raz jeszcze..." << std::endl
@@ -75,6 +75,8 @@ Room wybor_dzialania(GameData& gameData, short i_c){
 }
 
 Room windyTylne (GameData& gameData) {
+    print_text("Testowy tekst o tekstowym tekście!");
+
     start(gameData);
 
     short idiot_counter=0;

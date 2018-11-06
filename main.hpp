@@ -61,11 +61,13 @@ public:
 };
 
 bool yes();
-bool yes_arg(std::string s);
+bool yes_arg (std::string s);
 
 std::string lowercase(std::string str);
 
 void wait_s (unsigned int seconds);
 void wait_ms (unsigned int milliseconds);
+
+void print_text (std::string text);
 
 #endif //KSI_MAIN_HPP
