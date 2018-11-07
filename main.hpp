@@ -52,7 +52,7 @@ public:
         this->functions[SERWEROWNIA] = &fail;
         this->functions[WINDA_PIETRO] = &windaPietro;
         this->functions[WINDA_PARTER] = &windaParter;
-        this->functions[WINDY_TYLNE] = &fail;
+        this->functions[WINDY_TYLNE] = &windyTylne;
         this->functions[GARAZ] = &fail;
         this->functions[ZEWNATRZ] = &fail;
         this->functions[FAIL] = &fail;
