@@ -1,8 +1,10 @@
 #include <iostream>
 #include "../main.hpp"
 
-Room biblioteka(GameData &gameData) {
-  if (gameData.zaionc) {
+Room biblioteka(GameData &gameData)
+{
+  if (gameData.zaionc)
+  {
     std::cout << "Wpadasz do bibliteki, ZAIONC wciąż Cię goni." << std::endl
               << "Ukrywasz się między regałami, licząc, że ZAIONC nie wykryje "
                  "Cię swoim ekstra nosem."
@@ -26,7 +28,8 @@ Room biblioteka(GameData &gameData) {
             << "W bibliotece nie ma jednak Wprowadzenia do Algorytmów. Ponoszą Cię nerwy, "
                "czy szukasz PDF-a w internecie?"
             << std::endl;
-  if (yes()) {
+  if (yes())
+  {
     std::cout
         << "Źle postąpiłeś. Cormen dręczy Cię teraz w snach."
         << std::endl
@@ -35,7 +38,9 @@ Room biblioteka(GameData &gameData) {
     wait_s(2);
     gameData.alive = false;
     return FAIL;
-  } else {
+  }
+  else
+  {
     std::cout << "Wymyślasz algorytm z lepszą złożonością niż w Cormenie. Tłum szaleje ma twój widok."
               << std::endl;
     wait_s(2);
