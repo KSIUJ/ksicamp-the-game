@@ -12,12 +12,14 @@ CSOURCES := $(shell find $(srcdir) -type f -name "*.c")
 CHEADERS := $(shell find $(srcdir) -type f -name "*.h")
 CXXSOURCES := $(shell find $(srcdir) -type f -name "*.cpp")
 CXXHEADERS := $(shell find $(srcdir) -type f -name "*.hxx")
+CODESOURCES := $(CHEADERS) $(CSOURCES) $(CXXHEADERS) $(CXXSOURCES)
 COBJS := $(CSOURCES:$(srcdir)/%.c=$(builddir)/%.c.o)
 CXXOBJS := $(CXXSOURCES:$(srcdir)/%.cpp=$(builddir)/%.cxx.o)
 CDEPS := $(SOURCES:$(srcdir)/%.c=$(builddir)/%.c.d)
 CXXDEPS := $(CXXSOURCES:$(srcdir)/%.cpp=$(builddir)/%.cxx.d)
 TARGET := $(outdir)/ksicamp-the-game
 INSTALLTARGET := /usr/local/bin/ksicamp-the-game
+CLANGTIDYOPTS := --checks='-*,bugprone-*,cert-*,cppcoreguidelines-*,-cppcoreguidelines-pro-bounds-constant-array-index,clang-analyzer-*,modernize-*,performance-*,portability-*,readability-*,google-*,-google-runtime-references'
 
 all: $(TARGET)
 
@@ -56,7 +58,12 @@ uninstall:
 	rm $(INSTALLTARGET)
 
 lint:
-	cpplint --filter "-legal/copyright,-runtime/references,-build/c++11" $(CSOURCES) $(CXXSOURCES) $(CHEADERS) $(CXXHEADERS)
+	cpplint --filter "-legal/copyright,-runtime/references,-build/c++11" $(CODESOURCES)
+	clang-tidy $(CLANGTIDYOPTS) $(CSOURCES) $(CXXSOURCES)
+
+fix:
+	clang-format -style=Google -i $(CODESOURCES)
+	clang-tidy $(CLANGTIDYOPTS) -fix -format-style=Google $(CSOURCES) $(CXXSOURCES)
 
 .PHONY: all clean install uninstall
 .SECONDARY:

@@ -64,8 +64,8 @@ bool yes();
 
 std::string lowercase(std::string str);
 
-void wait_s (unsigned int seconds);
-void wait_ms (unsigned int milliseconds);
+void wait_s(unsigned int secs);
+void wait_ms(unsigned int millisecs);
 
 void dziekan_event (GameData& gameData);
 void zaionc_event (GameData& gameData);
