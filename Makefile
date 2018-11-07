@@ -5,7 +5,7 @@ CC ?= gcc
 CXX ?= g++
 LD = g++
 CPREFLAGS := -I $(srcdir) --std=c++11
-CFLAGS := -Wall -Wextra -pedantic -O2 -fPIC $(CPREFLAGS)
+CFLAGS := -Wall -Wextra -Werror -pedantic -O2 -fPIC $(CPREFLAGS)
 CXXFLAGS := $(CFLAGS)
 LDFLAGS = -fPIC
 CSOURCES := $(shell find $(srcdir) -type f -name "*.c")
