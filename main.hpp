@@ -16,6 +16,7 @@ enum Room {
     GARAZ,
     ZEWNATRZ,
     FAIL,
+    BIBLIOTEKA,
     ROOM_SIZE, // enum size marker
 };
 
@@ -30,6 +31,7 @@ Room windaPietro(GameData& gameData);
 Room windaParter(GameData& gameData);
 Room windyTylne(GameData& gameData);
 Room garaz(GameData& gameData);
+Room biblioteka(GameData& gameData);
 Room zewnatrz(GameData& gameData);
 
 class GameData {
@@ -54,6 +56,7 @@ public:
         this->functions[GARAZ] = &fail;
         this->functions[ZEWNATRZ] = &fail;
         this->functions[FAIL] = &fail;
+        this->functions[BIBLIOTEKA] = &biblioteka;
     }
 };
 
