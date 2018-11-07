@@ -22,7 +22,7 @@ class DestinationMap {
     if (this->destination_map.find(key) != this->destination_map.end()) {
       return this->destination_map[key];
     }
-      return FAIL;
+    return FAIL;
   }
 };
 
