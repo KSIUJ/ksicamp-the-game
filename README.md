@@ -19,7 +19,7 @@ make
 ```
 make lint
 ```
-### Auto-fix
+### Auto-fix (fixes only trivial issues)
 ```
 make fix
 ```
