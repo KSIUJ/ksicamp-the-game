@@ -6,17 +6,18 @@
 #include <cstring>
 
 enum Room {
-	KSI,
-	KORYTARZ,
-	SERWEROWNIA,
-	WC,
-	WINDA_PIETRO,
-	WINDA_PARTER,
-	WINDY_TYLNE,
-	GARAZ,
-	ZEWNATRZ,
-	FAIL,
-	ROOM_SIZE, // enum size marker
+    KSI,
+    KORYTARZ,
+    SERWEROWNIA,
+    WC,
+    WINDA_PIETRO,
+    WINDA_PARTER,
+    WINDY_TYLNE,
+    GARAZ,
+    ZEWNATRZ,
+    FAIL,
+    BIBLIOTEKA,
+    ROOM_SIZE, // enum size marker
 };
 
 class GameData;
@@ -30,6 +31,7 @@ Room windaPietro(GameData& gameData);
 Room windaParter(GameData& gameData);
 Room windyTylne(GameData& gameData);
 Room garaz(GameData& gameData);
+Room biblioteka(GameData& gameData);
 Room zewnatrz(GameData& gameData);
 
 class GameData {
@@ -42,19 +44,20 @@ public:
 	std::set<std::string> inventory;
 	Room room;
 
-	GameData(Room room) {
-		this->room = room;
-		this->functions[KSI] = &ksi;
-		this->functions[KORYTARZ] = &korytarz;
-		this->functions[WC] = &wc;
-		this->functions[SERWEROWNIA] = &fail;
-		this->functions[WINDA_PIETRO] = &windaPietro;
-		this->functions[WINDA_PARTER] = &windaParter;
-		this->functions[WINDY_TYLNE] = &fail;
-		this->functions[GARAZ] = &garaz;
-		this->functions[ZEWNATRZ] = &fail;
-		this->functions[FAIL] = &fail;
-	}
+    GameData(Room room) {
+        this->room = room;
+        this->functions[KSI] = &ksi;
+        this->functions[KORYTARZ] = &korytarz;
+        this->functions[WC] = &fail;
+        this->functions[SERWEROWNIA] = &fail;
+        this->functions[WINDA_PIETRO] = &windaPietro;
+        this->functions[WINDA_PARTER] = &windaParter;
+        this->functions[WINDY_TYLNE] = &windyTylne;
+        this->functions[GARAZ] = &fail;
+        this->functions[ZEWNATRZ] = &fail;
+        this->functions[FAIL] = &fail;
+        this->functions[BIBLIOTEKA] = &biblioteka;
+    }
 };
 
 bool yes();
