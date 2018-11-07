@@ -9,7 +9,9 @@ CFLAGS := -Wall -Wextra -Werror -pedantic -O2 -fPIC $(CPREFLAGS)
 CXXFLAGS := $(CFLAGS)
 LDFLAGS = -fPIC
 CSOURCES := $(shell find $(srcdir) -type f -name "*.c")
+CHEADERS := $(shell find $(srcdir) -type f -name "*.h")
 CXXSOURCES := $(shell find $(srcdir) -type f -name "*.cpp")
+CXXHEADERS := $(shell find $(srcdir) -type f -name "*.hxx")
 COBJS := $(CSOURCES:$(srcdir)/%.c=$(builddir)/%.c.o)
 CXXOBJS := $(CXXSOURCES:$(srcdir)/%.cpp=$(builddir)/%.cxx.o)
 CDEPS := $(SOURCES:$(srcdir)/%.c=$(builddir)/%.c.d)
@@ -52,6 +54,9 @@ install:
 	cp $(TARGET) $(INSTALLTARGET)
 uninstall:
 	rm $(INSTALLTARGET)
+
+lint:
+	cpplint --filter "-legal/copyright" $(CSOURCES) $(CXXSOURCES) $(CHEADERS) $(CXXHEADERS)
 
 .PHONY: all clean install uninstall
 .SECONDARY:
