@@ -51,7 +51,7 @@ public:
         this->functions[WINDA_PIETRO] = &windaPietro;
         this->functions[WINDA_PARTER] = &windaParter;
         this->functions[WINDY_TYLNE] = &fail;
-        this->functions[GARAZ] = &fail;
+        this->functions[GARAZ] = &garaz;
         this->functions[ZEWNATRZ] = &fail;
         this->functions[FAIL] = &fail;
     }
