@@ -2,27 +2,27 @@
 
 #include "../main.hpp"
 
-Room wc (GameData& gameData)
+Room wc (__attribute__((unused)) GameData& gameData)
 {
 
 std::cout << std::endl;
 
- std::cout << " .************************************ " << std::endl; wait_ms(200);
- std::cout << " *###################################, " << std::endl; wait_ms(200);
- std::cout << " *###################################, " << std::endl; wait_ms(200);
- std::cout << " *###################################, " << std::endl; wait_ms(200);
- std::cout << " *####  ####    ###,  ##/        ####, " << std::endl; wait_ms(200);
- std::cout << " *####   ##/    (##   #   #####   ###, " << std::endl; wait_ms(200);
- std::cout << " *#####  ##  #,  ##  ##   ###########, " << std::endl; wait_ms(200);
- std::cout << " *#####   ,  ##  (   ##   ###########, " << std::endl; wait_ms(200);
- std::cout << " *######    ####    ###   #####   ###, " << std::endl; wait_ms(200);
- std::cout << " *######    ####    ####.        ####, " << std::endl; wait_ms(200);
- std::cout << " *###################################, " << std::endl; wait_ms(200);
- std::cout << " *###################################, " << std::endl; wait_ms(200);
- std::cout << " *###################################, " << std::endl; wait_ms(200);
- std::cout << " *#################################### " << std::endl; wait_ms(200);
+	std::cout << " .************************************ " << std::endl; wait_ms(200);
+	std::cout << " *###################################, " << std::endl; wait_ms(200);
+	std::cout << " *###################################, " << std::endl; wait_ms(200);
+	std::cout << " *###################################, " << std::endl; wait_ms(200);
+	std::cout << " *####  ####    ###,  ##/        ####, " << std::endl; wait_ms(200);
+	std::cout << " *####   ##/    (##   #   #####   ###, " << std::endl; wait_ms(200);
+	std::cout << " *#####  ##  #,  ##  ##   ###########, " << std::endl; wait_ms(200);
+	std::cout << " *#####   ,  ##  (   ##   ###########, " << std::endl; wait_ms(200);
+	std::cout << " *######    ####    ###   #####   ###, " << std::endl; wait_ms(200);
+	std::cout << " *######    ####    ####.        ####, " << std::endl; wait_ms(200);
+	std::cout << " *###################################, " << std::endl; wait_ms(200);
+	std::cout << " *###################################, " << std::endl; wait_ms(200);
+	std::cout << " *###################################, " << std::endl; wait_ms(200);
+	std::cout << " *#################################### " << std::endl; wait_ms(200);
 
-std::cout << std::endl << std::endl;
+	std::cout << std::endl << std::endl;
 
 	std::cout << "Wchodzisz do WC. " << std::endl;
 	wait_s(1);
