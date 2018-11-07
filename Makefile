@@ -56,7 +56,7 @@ uninstall:
 	rm $(INSTALLTARGET)
 
 lint:
-	cpplint --filter "-legal/copyright" $(CSOURCES) $(CXXSOURCES) $(CHEADERS) $(CXXHEADERS)
+	cpplint --filter "-legal/copyright,-runtime/references,-build/c++11" $(CSOURCES) $(CXXSOURCES) $(CHEADERS) $(CXXHEADERS)
 
 .PHONY: all clean install uninstall
 .SECONDARY:
