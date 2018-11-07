@@ -1,0 +1,7 @@
+language: cpp
+script: make
+
+after_failure:
+  - wget https://raw.githubusercontent.com/apardyl/travis-ci-discord-webhook/master/send.sh
+  - chmod +x send.sh
+  - ./send.sh failure $WEBHOOK_URL

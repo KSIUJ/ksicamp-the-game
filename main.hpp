@@ -42,19 +42,19 @@ public:
 	std::set<std::string> inventory;
 	Room room;
 
-	GameData(Room room) {
-		this->room = room;
-		this->functions[KSI] = &ksi;
-		this->functions[KORYTARZ] = &korytarz;
-		this->functions[WC] = &fail;
-		this->functions[SERWEROWNIA] = &fail;
-		this->functions[WINDA_PIETRO] = &windaPietro;
-		this->functions[WINDA_PARTER] = &windaParter;
-		this->functions[WINDY_TYLNE] = &fail;
-		this->functions[GARAZ] = &fail;
-		this->functions[ZEWNATRZ] = &fail;
-		this->functions[FAIL] = &fail;
-	}
+    GameData(Room room) {
+        this->room = room;
+        this->functions[KSI] = &ksi;
+        this->functions[KORYTARZ] = &korytarz;
+        this->functions[WC] = &wc;
+        this->functions[SERWEROWNIA] = &fail;
+        this->functions[WINDA_PIETRO] = &windaPietro;
+        this->functions[WINDA_PARTER] = &windaParter;
+        this->functions[WINDY_TYLNE] = &fail;
+        this->functions[GARAZ] = &garaz;
+        this->functions[ZEWNATRZ] = &fail;
+        this->functions[FAIL] = &fail;
+    }
 };
 
 bool yes();
@@ -66,5 +66,7 @@ void wait_ms (unsigned int milliseconds);
 
 void dziekan_event (GameData& gameData);
 void zaionc_event (GameData& gameData);
+
+void print_text (std::string text);
 
 #endif //KSI_MAIN_HPP
