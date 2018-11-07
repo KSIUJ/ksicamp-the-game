@@ -36,24 +36,24 @@ Room zewnatrz(GameData& gameData);
 
 class GameData {
 public:
-	Room (* functions[ROOM_SIZE])(GameData&);
+    Room (* functions[ROOM_SIZE])(GameData&);
 	bool alive = true;
 	bool zaionc = false;
 	bool zaionc_KSI = false;
 	bool dziekan_spotted = false;
-	std::set<std::string> inventory;
-	Room room;
+    std::set<std::string> inventory;
+    Room room;
 
     GameData(Room room) {
         this->room = room;
         this->functions[KSI] = &ksi;
         this->functions[KORYTARZ] = &korytarz;
-        this->functions[WC] = &fail;
+        this->functions[WC] = &wc;
         this->functions[SERWEROWNIA] = &fail;
         this->functions[WINDA_PIETRO] = &windaPietro;
         this->functions[WINDA_PARTER] = &windaParter;
         this->functions[WINDY_TYLNE] = &windyTylne;
-        this->functions[GARAZ] = &fail;
+        this->functions[GARAZ] = &garaz;
         this->functions[ZEWNATRZ] = &fail;
         this->functions[FAIL] = &fail;
         this->functions[BIBLIOTEKA] = &biblioteka;
