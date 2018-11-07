@@ -46,7 +46,7 @@ public:
         this->room = room;
         this->functions[KSI] = &ksi;
         this->functions[KORYTARZ] = &korytarz;
-        this->functions[WC] = &fail;
+        this->functions[WC] = &wc;
         this->functions[SERWEROWNIA] = &fail;
         this->functions[WINDA_PIETRO] = &windaPietro;
         this->functions[WINDA_PARTER] = &windaParter;
