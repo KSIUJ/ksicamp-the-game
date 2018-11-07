@@ -10,19 +10,21 @@ Room windyTylne(GameData &gameData)
     {
         return BIBLIOTEKA;
     }
-    std::cout << "Czy chcesz iść do garażu?" << std::endl;
-    if (yes())
+    else if (yes())
     {
+        std::cout << "Czy chcesz iść do garażu?" << std::endl;
         return GARAZ;
     }
-    std::cout << "Czy chcesz iść do windy na piętrze?" << std::endl;
-    if (yes())
+    else if (yes())
     {
+        std::cout << "Czy chcesz iść do windy na piętrze?" << std::endl;
         return WINDA_PIETRO;
     }
-    std::cout << "Czy chcesz iść do windy na parterze?" << std::endl;
-    if (yes())
+    else if (yes())
     {
+        std::cout << "Czy chcesz iść do windy na parterze?" << std::endl;
         return WINDA_PARTER;
     }
+    else
+        return WINDY_TYLNE;
 }
