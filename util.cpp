@@ -6,23 +6,23 @@
 #include "main.hpp"
 
 Room fail(GameData& gameData) {
-	std::cout << "Ten pokój nie istnieje. Spadłeś w pustkę. Elo." << std::endl;
-	gameData.alive = false;
-	
-	return ZEWNATRZ;
+    std::cout << "Ten pokój nie istnieje. Spadłeś w pustkę. Elo." << std::endl;
+    gameData.alive = false;
+    
+    return ZEWNATRZ;
 }
 
 bool yes() {
 	std::cout << ">"; // prompt, użytkownik wie że czas na jego ruch
-	std::string response;
-	std::cin >> response;
-	return strchr("YyTt", response[0]) != nullptr;
+    std::string response;
+    std::cin >> response;
+    return strchr("YyTt", response[0]) != nullptr;
 }
 
 std::string lowercase(std::string str){
-	std::string result = str;
-	std::transform(str.begin(), str.end(), result.begin(), ::tolower);
-	return result;
+    std::string result = str;
+    std::transform(str.begin(), str.end(), result.begin(), ::tolower);
+    return result;
 }
 
 
@@ -39,9 +39,9 @@ void wait_ms (unsigned int millisecs) {	// wstrzymuje wątek
 
 
 void print_text (std::string text){
-	for(unsigned int i=0; i < text.length(); i++){
-		std::cout << text[i];
-		wait_ms(20);
-	}
-	std::cout << std::endl;
+    for(unsigned int i=0; i < text.length(); i++){
+        std::cout << text[i];
+        wait_ms(20);
+    }
+    std::cout << std::endl;
 }

@@ -2,7 +2,7 @@
 
 #include "../main.hpp"
 
-Room windyTylne(GameData &gameData)
+Room windyTylne(__attribute__((unused)) GameData &gameData)
 {
     std::cout << "Jesteś w windach tylnych" << std::endl
               << "Czy chcesz iść do biblioteki?" << std::endl;
