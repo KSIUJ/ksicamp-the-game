@@ -51,7 +51,7 @@ public:
         this->functions[WINDA_PIETRO] = &windaPietro;
         this->functions[WINDA_PARTER] = &windaParter;
         this->functions[WINDY_TYLNE] = &fail;
-        this->functions[GARAZ] = &fail;
+        this->functions[GARAZ] = &garaz;
         this->functions[ZEWNATRZ] = &fail;
         this->functions[FAIL] = &fail;
     }
@@ -66,5 +66,7 @@ void wait_ms (unsigned int milliseconds);
 
 void dziekan_event (GameData& gameData);
 void zaionc_event (GameData& gameData);
+
+void print_text (std::string text);
 
 #endif //KSI_MAIN_HPP
