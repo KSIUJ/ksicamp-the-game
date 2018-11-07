@@ -7,7 +7,7 @@ class DestinationMap {
   std::unordered_map<std::string, Room> destination_map;
 
  public:
-  DestinationMap() {
+  DestinationMap() noexcept {
     destination_map["1"] = SERWEROWNIA;
     destination_map["serwerownia"] = SERWEROWNIA;
     destination_map["2"] = WC;
@@ -18,12 +18,11 @@ class DestinationMap {
     destination_map["ksi"] = KSI;
   }
 
-  Room operator[](std::string key) {
+  Room operator[](const std::string& key) {
     if (this->destination_map.find(key) != this->destination_map.end()) {
       return this->destination_map[key];
-    } else {
-      return FAIL;
     }
+      return FAIL;
   }
 };
 
@@ -72,8 +71,8 @@ Room korytarz(GameData& gameData) {
     gameData.dziekan_spotted = true;
   }
 
-  if (gameData.alive)
+  if (gameData.alive) {
     return leave_korytarz();
-  else
-    return KORYTARZ;
+  }
+  { return KORYTARZ; }
 }
