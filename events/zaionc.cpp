@@ -3,10 +3,13 @@
 #include "../main.hpp"
 
 void zaionc_event(GameData& gameData) {
-  if (gameData.zaionc)  // zaionc już nas goni.
+  if (gameData.zaionc) {  // zaionc już nas goni.
     return;
+  }
 
-  if (gameData.zaionc_KSI) return;
+  if (gameData.zaionc_KSI) {
+    return;
+  }
 
   std::cout << "Słyszysz niepokojące odgłosy ";
 

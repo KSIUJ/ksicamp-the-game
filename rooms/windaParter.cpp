@@ -16,12 +16,11 @@ Room windaParter(GameData& gameData) {
     std::cout << "Uciekasz przed nim?" << std::endl;
     if (yes()) {
       return KORYTARZ;
-    } else {
+    }
       std::cout << "Zaionc Cię dopadł." << std::endl;
       wait_s(2);
       gameData.alive = false;
       return FAIL;
-    }
   }
 
   std::cout << "Jesteś na parterze.";
@@ -31,13 +30,12 @@ Room windaParter(GameData& gameData) {
   std::cout << "Czy chcesz wyjść na zewnątrz?" << std::endl;
   if (yes()) {
     return ZEWNATRZ;
-  } else {
-    std::cout << "Czy chcesz wrócić na korytarz?" << std::endl;
-    if (yes())
-      return KORYTARZ;
-    else
-      return WINDA_PARTER;
   }
+    std::cout << "Czy chcesz wrócić na korytarz?" << std::endl;
+    if (yes()) {
+      return KORYTARZ;
+    }
+    { return WINDA_PARTER; }
 
-  return FAIL;
+    return FAIL;
 }

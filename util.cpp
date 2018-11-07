@@ -36,8 +36,8 @@ void wait_ms(unsigned int millisecs) {  // wstrzymuje wątek
 }
 
 void print_text(std::string text) {
-  for (unsigned int i = 0; i < text.length(); i++) {
-    std::cout << text[i];
+  for (char i : text) {
+    std::cout << i;
     wait_ms(20);
   }
   std::cout << std::endl;

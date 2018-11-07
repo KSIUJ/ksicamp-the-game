@@ -36,10 +36,9 @@ Room biblioteka(GameData &gameData) {
     wait_s(2);
     gameData.alive = false;
     return FAIL;
-  } else {
+  }
     std::cout << "Młody, SZACUN RISPEKT, dr. Kawa był by z Ciebie dumny."
               << std::endl;
     wait_s(2);
     return WINDY_TYLNE;
-  }
 }
