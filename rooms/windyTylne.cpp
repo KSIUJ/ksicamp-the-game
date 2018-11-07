@@ -7,16 +7,18 @@ Room windyTylne(__attribute__((unused)) GameData &gameData) {
             << "Czy chcesz iść do biblioteki?" << std::endl;
   if (yes()) {
     return BIBLIOTEKA;
-  } else if (yes()) {
+  }
+  if (yes()) {
     std::cout << "Czy chcesz iść do garażu?" << std::endl;
     return GARAZ;
-  } else if (yes()) {
+  }
+  if (yes()) {
     std::cout << "Czy chcesz iść do windy na piętrze?" << std::endl;
     return WINDA_PIETRO;
-  } else if (yes()) {
+  }
+  if (yes()) {
     std::cout << "Czy chcesz iść do windy na parterze?" << std::endl;
     return WINDA_PARTER;
-  } else {
-    return WINDY_TYLNE;
   }
+  return WINDY_TYLNE;
 }
