@@ -2,7 +2,7 @@
 
 #include "../main.hpp"
 
-Room wc (GameData& gameData)
+Room wc (__attribute__((unused)) GameData& gameData)
 {
 
 std::cout << std::endl;
