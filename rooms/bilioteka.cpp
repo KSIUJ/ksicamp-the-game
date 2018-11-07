@@ -41,5 +41,4 @@ Room biblioteka(GameData &gameData) {
               << std::endl;
     wait_s(2);
     return WINDY_TYLNE;
-  }
 }
