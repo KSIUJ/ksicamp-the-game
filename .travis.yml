@@ -1,5 +1,13 @@
-language: cpp
-script: make
+matrix:
+  include:
+      - name: "Build"
+        language: cpp
+        script: make
+      - name: "Code style"
+        language: python
+        python: "3.5"
+        install: pip install cpplint
+        script: make lint
 
 after_failure:
   - wget https://raw.githubusercontent.com/apardyl/travis-ci-discord-webhook/master/send.sh
