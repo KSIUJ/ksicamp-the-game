@@ -19,7 +19,7 @@ CDEPS := $(SOURCES:$(srcdir)/%.c=$(builddir)/%.c.d)
 CXXDEPS := $(CXXSOURCES:$(srcdir)/%.cpp=$(builddir)/%.cxx.d)
 TARGET := $(outdir)/ksicamp-the-game
 INSTALLTARGET := /usr/local/bin/ksicamp-the-game
-CLANGTIDYOPTS := --checks='-*,bugprone-*,cert-*,cppcoreguidelines-*,-cppcoreguidelines-pro-bounds-constant-array-index,clang-analyzer-*,modernize-*,performance-*,portability-*,readability-*,google-*,-google-runtime-references'
+CLANGTIDYOPTS := --checks='-*,bugprone-*,cert-*,cppcoreguidelines-*,-cppcoreguidelines-pro-*,clang-analyzer-*,modernize-*,performance-*,portability-*,readability-*'
 
 all: $(TARGET)
 
