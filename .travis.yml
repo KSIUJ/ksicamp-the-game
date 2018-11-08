@@ -1,15 +1,12 @@
-matrix:
-  include:
-      - name: "Build"
-        language: cpp
-        script: make
-      - name: "Code style"
-        language: python
-        python: "3.5"
-        install: pip install cpplint
-        script: make lint
+language: python
+python: "3.5"
+install: pip install cpplint
 
-after_failure:
-  - wget https://raw.githubusercontent.com/apardyl/travis-ci-discord-webhook/master/send.sh
-  - chmod +x send.sh
-  - ./send.sh failure $WEBHOOK_URL
+jobs:
+  include:
+    - stage: Dependencies
+      script: make deps
+    - stage: Build
+      script: make
+    - stage: Lint
+      script: make lint
