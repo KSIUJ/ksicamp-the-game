@@ -36,9 +36,9 @@ Room biblioteka(GameData &gameData) {
     gameData.alive = false;
     return FAIL;
   }
-    std::cout << "Wymyślasz algorytm z lepszą złożonością niż w Cormenie. Tłum "
-                 "szaleje ma twój widok."
-              << std::endl;
-    wait_s(2);
-    return WINDY_TYLNE;
+  std::cout << "Wymyślasz algorytm z lepszą złożonością niż w Cormenie. Tłum "
+               "szaleje ma twój widok."
+            << std::endl;
+  wait_s(2);
+  return WINDY_TYLNE;
 }
