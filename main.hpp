@@ -49,7 +49,7 @@ class GameData {
     this->functions[KSI] = &ksi;
     this->functions[KORYTARZ] = &korytarz;
     this->functions[WC] = &wc;
-    this->functions[SERWEROWNIA] = &fail;
+    this->functions[SERWEROWNIA] = &serwerownia;
     this->functions[WINDA_PIETRO] = &windaPietro;
     this->functions[WINDA_PARTER] = &windaParter;
     this->functions[WINDY_TYLNE] = &windyTylne;
