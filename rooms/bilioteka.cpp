@@ -25,7 +25,7 @@ Room biblioteka(GameData &gameData) {
          "nim osiadał."
       << std::endl
       << "W bibliotece nie ma jednak Wprowadzenia do Algorytmów. Ponoszą Cię "
-         "nerwy, "
+         "nerwy. "
          "czy szukasz PDF-a w internecie?"
       << std::endl;
   if (yes()) {
