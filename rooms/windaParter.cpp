@@ -2,44 +2,40 @@
 
 #include "../main.hpp"
 
-Room windaParter (GameData& gameData)
-{
+Room windaParter(GameData& gameData) {
+  if (gameData.zaionc) {
+    std::cout << "Próbujesz zawrócić, ale zając Cię dopada." << std::endl;
+    gameData.alive = false;
+    return WINDA_PARTER;
+  }
 
-	if (gameData.zaionc) {
-		std::cout << "Próbujesz zawrócić, ale zając Cię dopada." << std::endl;
-		gameData.alive = false;
-		return WINDA_PARTER;
-	}
+  zaionc_event(gameData);
 
-	zaionc_event(gameData);
-		
-	if (gameData.zaionc) {
-		std::cout << "Goni Cię zaionc." << std::endl;
-		std::cout << "Uciekasz przed nim?" << std::endl;
-		if (yes())
-			return KORYTARZ;
-		else {
-			std::cout << "Zaionc Cię dopadł." << std::endl;
-			wait_s(2);
-			gameData.alive = false;
-			return FAIL;
-		}
-	}
+  if (gameData.zaionc) {
+    std::cout << "Goni Cię zaionc." << std::endl;
+    std::cout << "Uciekasz przed nim?" << std::endl;
+    if (yes()) {
+      return KORYTARZ;
+    }
+      std::cout << "Zaionc Cię dopadł." << std::endl;
+      wait_s(2);
+      gameData.alive = false;
+      return FAIL;
+  }
 
-	std::cout << "Jesteś na parterze."; 
-	wait_s(2);
-	std::cout << std::endl;
+  std::cout << "Jesteś na parterze.";
+  wait_s(2);
+  std::cout << std::endl;
 
-	std::cout << "Czy chcesz wyjść na zewnątrz?" << std::endl;
-	if (yes())
-		return ZEWNATRZ;
-	else {
-		std::cout << "Czy chcesz wrócić na korytarz?" << std::endl;
-		if (yes())
-			return KORYTARZ;
-		else
-			return WINDA_PARTER;
-	}
+  std::cout << "Czy chcesz wyjść na zewnątrz?" << std::endl;
+  if (yes()) {
+    return ZEWNATRZ;
+  }
+    std::cout << "Czy chcesz wrócić na korytarz?" << std::endl;
+    if (yes()) {
+      return KORYTARZ;
+    }
+    { return WINDA_PARTER; }
 
-	return FAIL; 
+    return FAIL;
 }
