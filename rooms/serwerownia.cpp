@@ -2,8 +2,7 @@
 
 #include "../main.hpp"
 
-Room serwerownia(GameData& gameData)
-{
+Room serwerownia(GameData& gameData) {
     std::cout << "Wchodziś do serwerowni, nikogo tu nie ma" << std::endl;
 
     if (gameData.inventory.find("młotek") == gameData.inventory.end()) {
