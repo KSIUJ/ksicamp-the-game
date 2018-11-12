@@ -8,6 +8,8 @@
 const short minigame_row = 3;
 const short minigame_col = 3;
 
+std::string wybor;
+
 void start(GameData& gameData){
     std::cout << "Przechodzisz do tylnej strony budynku i widzisz " 
               << (gameData.winda_repaired ? "naprawioną przez siebę windę " : "windę, która sprawia wrażenie niedziałającej")
@@ -18,6 +20,11 @@ void draw_minigame(char k[][minigame_col+2], short off[minigame_col]){
     std::cout << "Not yet implemented" << std::endl;
 }
 
+void input_prompt(std::string &s){
+    std::cout << "> ";
+    std::cin >> s;
+}
+
 bool lift_repairing_game(GameData& gameData){                    //TODO: Add minigame
     std::cout << "Po chwili dochodzisz do wniosku, że bez ściągnięcia zewnętrznej osłony nic nie zdziałasz" << std::endl;
     if(gameData.inventory.find("śrubokręt") != gameData.inventory.end()){
@@ -26,8 +33,9 @@ bool lift_repairing_game(GameData& gameData){                    //TODO: Add min
                   << "Co robisz?" << std::endl
                   << "1. Naprawiam dalej" << std::endl
                   << "2. Odpuszczam i przykręcam płytkę z powrotem" << std::endl;
-
-        if(yes_arg("1")){
+        
+        input_prompt(wybor);
+        if(wybor[0] == '1'){
             std::cout << "Not implemented yet" << std::endl;
             /*
             std::cout << "Po chwili analizowania kabli stwierdzasz, że jak je poprzesuwasz i odpowiednio połączysz"
@@ -53,10 +61,9 @@ bool lift_repairing_game(GameData& gameData){                    //TODO: Add min
         std::cout<< "Niestety, ale nie masz potrzebnego narzędzia do tego, wróć później jak je zdobędziesz" << std::endl;
         return false;
     }
-};
+}
 
 Room wybor_dzialania(GameData& gameData, short i_c){
-    std::string wybor;
     while(true){
         std::cout << "Co robisz?" << std::endl;
         wait_ms(200);
@@ -67,7 +74,8 @@ Room wybor_dzialania(GameData& gameData, short i_c){
                   << "5. Wracam na korytarz" << std::endl;
 
         if(!gameData.zaionc){
-            if(yes_arg("1")){
+            input_prompt(wybor);
+            if(wybor[0] == '1'){
                 if(!gameData.winda_repaired) {
                     std::cout << "Widzisz, migotające co jakiś czas, podświetlenie przycisku przywołania windy o jasnoniebieskim kolorze" << std::endl
                             << "Po przyjrzeniu się zauważasz, że w środku musi być jakieś zwarcie" << std::endl << std::endl
@@ -76,11 +84,12 @@ Room wybor_dzialania(GameData& gameData, short i_c){
                             << "2. Mam to w głęboko i próbuję użyć windy" << std::endl;
                     
                     do{
-                        if(yes_arg("1")){
+                        input_prompt(wybor);
+                        if(wybor[0] == '1'){
                             std::cout << "Not implemented yet" << std::endl;
                             return WINDY_TYLNE;
                             //if(lift_repairing_game(gameData)) gameData.winda_repaired = true;
-                        } else if (yes_arg("1")){
+                        } else if (wybor[0] == '2'){
                             if(i_c == 8){
                                 std::cout << "Przypominasz sobie o chińskich korzeniach i stwierdzasz, że za 8 sprawdzeniem winda na pewno będzie działać"
                                           << std::endl;
@@ -98,16 +107,16 @@ Room wybor_dzialania(GameData& gameData, short i_c){
                         } else {
                             std::cout << "No debil no" << std::endl << std::endl;
                         }
-                    }while (wybor != "1" && wybor != "2");
+                    }while (wybor[0] != '1' && wybor[0] != '2');
                 } else return WINDA_PARTER;
             
-            } else if(yes_arg("2")) return WINDA_PIETRO;
+            } else if(wybor[0] == '2') return WINDA_PIETRO;
 
-            else if(yes_arg("3")) return BIBLIOTEKA;
+            else if(wybor[0] == '3') return BIBLIOTEKA;
 
-            else if(yes_arg("4")) return GARAZ;
+            else if(wybor[0] == '4') return GARAZ;
 
-            else if(yes_arg("5")) return KORYTARZ;
+            else if(wybor[0] == '5') return KORYTARZ;
             
             else {                                      //TODO: Add waving "hand"
                 std::cout << std::endl << std::endl
@@ -117,7 +126,8 @@ Room wybor_dzialania(GameData& gameData, short i_c){
                         << "...tym razem mądrze, jeśli można." << std::endl << std::endl;
             }
         } else {
-            if(yes_arg("1")){
+            input_prompt(wybor);
+            if(wybor[0] == '1'){
                 if(!gameData.winda_repaired) {
                     std::cout << "Jesteś debil, bo zamiast uciekać sprawdzasz windę" << std::endl;
                     gameData.alive=false;
@@ -133,7 +143,7 @@ Room wybor_dzialania(GameData& gameData, short i_c){
                     }
                 }
             
-            } else if(yes_arg("2")) {
+            } else if(wybor[0] == '2') {
                     if(rand()%10>0) {
                         std::cout << "Widzisz jak w ostatniej chwili drzwi od windy zamykają się przed zaioncem" << std::endl;
                         return WINDA_PIETRO;
@@ -144,11 +154,11 @@ Room wybor_dzialania(GameData& gameData, short i_c){
                     }
                 }
 
-            else if(yes_arg("3")) return BIBLIOTEKA;
+            else if(wybor[0] == '3') return BIBLIOTEKA;
 
-            else if(yes_arg("4")) return GARAZ;
+            else if(wybor[0] == '4') return GARAZ;
 
-            else if(yes_arg("5")) return KORYTARZ;
+            else if(wybor[0] == '5') return KORYTARZ;
             
             else {
                 std::cout << "Twoje niezdecydowanie działa na korzyść zaionca" << std::endl;

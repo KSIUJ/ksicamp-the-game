@@ -53,7 +53,6 @@ void print_text (std::string text){
     std::cout << std::endl;
 }
 
-
 void clear_screen(){
 #ifdef WINDOWS
     std::system("cls");
