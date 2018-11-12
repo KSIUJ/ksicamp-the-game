@@ -76,9 +76,11 @@ Room wybor_dzialania(GameData& gameData, short i_c){
                             << "2. Mam to w głęboko i próbuję użyć windy" << std::endl;
                     
                     do{
-                        if(yes_arg("1"))    if(lift_repairing_game(gameData)) gameData.winda_repaired = true;
-                        
-                        else if (yes_arg("1")){
+                        if(yes_arg("1")){
+                            std::cout << "Not implemented yet" << std::endl;
+                            return WINDY_TYLNE;
+                            //if(lift_repairing_game(gameData)) gameData.winda_repaired = true;
+                        } else if (yes_arg("1")){
                             if(i_c == 8){
                                 std::cout << "Przypominasz sobie o chińskich korzeniach i stwierdzasz, że za 8 sprawdzeniem winda na pewno będzie działać"
                                           << std::endl;
