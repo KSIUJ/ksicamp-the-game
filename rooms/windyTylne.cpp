@@ -1,4 +1,5 @@
 #include <iostream>
+<<<<<<< HEAD
 #include <string>
 #include <cstdlib>
 #include <ctime>
@@ -179,3 +180,28 @@ Room windyTylne (GameData& gameData) {
     return KORYTARZ;
 }
 
+=======
+
+#include "../main.hpp"
+
+Room windyTylne(__attribute__((unused)) GameData &gameData) {
+  std::cout << "Jesteś w windach tylnych" << std::endl
+            << "Czy chcesz iść do biblioteki?" << std::endl;
+  if (yes()) {
+    return BIBLIOTEKA;
+  }
+  std::cout << "Czy chcesz iść do garażu?" << std::endl;
+  if (yes()) {
+    return GARAZ;
+  }
+  std::cout << "Czy chcesz iść do windy na piętrze?" << std::endl;
+  if (yes()) {
+    return WINDA_PIETRO;
+  }
+  std::cout << "Czy chcesz iść do windy na parterze?" << std::endl;
+  if (yes()) {
+    return WINDA_PARTER;
+  }
+  return WINDY_TYLNE;
+}
+>>>>>>> 7063c8ca02e2ae8f9d116061d5dc74b6a852952c

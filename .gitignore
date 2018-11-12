@@ -41,3 +41,5 @@ makefile
 # Vim
 *.swp
 rooms/*.swp
+build/
+bin/
