@@ -6,8 +6,8 @@
 
 #include "../main.hpp"
 
-const short minigame_row = 3;
-const short minigame_col = 3;
+const int8_t minigame_row = 3;
+const int8_t minigame_col = 3;
 
 std::string wybor;
 
@@ -16,11 +16,11 @@ void start(GameData& gameData){
               << (gameData.winda_repaired ? "naprawioną przez siebę windę " : "windę, która sprawia wrażenie niedziałającej")
               << std::endl;
 }
-
+/*
 void draw_minigame(char k[][minigame_col+2], short off[minigame_col]){
     std::cout << "Not yet implemented" << std::endl;
 }
-
+*/
 void input_prompt(std::string &s){
     std::cout << "> ";
     std::cin >> s;

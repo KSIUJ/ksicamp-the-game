@@ -4,25 +4,7 @@
 #include "../main.hpp"
 
 class DestinationMap {
-<<<<<<< HEAD
-    std::unordered_map<std::string, Room> destination_map;
-    
-    public:
-        DestinationMap() {
-            destination_map["1"] = SERWEROWNIA;
-            destination_map["serwerownia"] = SERWEROWNIA;
-            destination_map["2"] = WC;
-            destination_map["wc"] = WC;
-            destination_map["3"] = WINDA_PIETRO;
-            destination_map["winda"] = WINDA_PIETRO;
-            destination_map["4"] = KSI;
-            destination_map["ksi"] = KSI;
-            destination_map["5"] = WINDY_TYLNE;
-            destination_map["windy tylne"] = WINDY_TYLNE;
-        }
-=======
   std::unordered_map<std::string, Room> destination_map;
->>>>>>> 7063c8ca02e2ae8f9d116061d5dc74b6a852952c
 
  public:
   DestinationMap() noexcept {
@@ -48,6 +30,7 @@ static DestinationMap destination_map;
 
 Room leave_korytarz() {
   std::string destination;
+<<<<<<< HEAD
 
 <<<<<<< HEAD
     while(true){
@@ -61,6 +44,8 @@ Room leave_korytarz() {
         std::cin  >> destination;
         std::cout << "Idziesz w stronę " << destination << std::endl;
 =======
+=======
+>>>>>>> 368f095... Fuck lint
   while (true) {
     std::cout << "Dokąd dalej?" << std::endl
               << "1) Serwerownia" << std::endl
