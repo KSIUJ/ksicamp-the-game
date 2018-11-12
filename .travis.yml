@@ -4,8 +4,6 @@ install: pip install cpplint
 
 jobs:
   include:
-    - stage: Dependencies
-      script: make deps
     - stage: Build
       script: make
     - stage: Lint
