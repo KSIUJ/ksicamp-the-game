@@ -13,12 +13,6 @@ Room fail(GameData& gameData) {
   return ZEWNATRZ;
 }
 
-bool yes() {
-	std::cout << "> "; // prompt, użytkownik wie że czas na jego ruch
-    std::string response;
-    std::cin >> response;
-    return strchr("YyTt", response[0]) != nullptr;
-}
 
 std::string lowercase(std::string str) {
   std::string result = str;
@@ -44,19 +38,11 @@ void print_text(std::string text) {
   std::cout << std::endl;
 }
 
-bool yes_arg(std::string s) {
+bool yes(const std::string& s) {
 	std::cout << "> "; // prompt, użytkownik wie że czas na jego ruch
     std::string response;
     std::cin >> response;
     return strchr(s.c_str(), response[0]) != nullptr;
-}
-
-void print_text (std::string text){
-    for(int i=0; i < text.length(); i++){
-        std::cout << text[i];
-        wait_ms(20);
-    }
-    std::cout << std::endl;
 }
 
 void clear_screen(){

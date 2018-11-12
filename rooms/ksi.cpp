@@ -38,6 +38,7 @@ Room ksi(GameData& gameData) {
               << (gameData.zaionc_KSI ? ""
                                       : "Jakiś Phoe śpi w na kanapie w kącie.")
               << std::endl;
+    }
   }
 
   std::cout << "Wychodzisz na korytarz przed KSI." << std::endl;
