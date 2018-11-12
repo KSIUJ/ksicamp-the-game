@@ -1,23 +1,23 @@
-#ifndef KSI_MAIN_HPP
-#define KSI_MAIN_HPP
+#ifndef MAIN_HPP_
+#define MAIN_HPP_
 
+#include <cstring>
 #include <set>
 #include <string>
-#include <cstring>
 
 enum Room {
-    KSI,
-    KORYTARZ,
-    SERWEROWNIA,
-    WC,
-    WINDA_PIETRO,
-    WINDA_PARTER,
-    WINDY_TYLNE,
-    GARAZ,
-    ZEWNATRZ,
-    BIBLIOTEKA,
-    FAIL,
-    ROOM_SIZE, // enum size marker
+  KSI,
+  KORYTARZ,
+  SERWEROWNIA,
+  WC,
+  WINDA_PIETRO,
+  WINDA_PARTER,
+  WINDY_TYLNE,
+  GARAZ,
+  ZEWNATRZ,
+  FAIL,
+  BIBLIOTEKA,
+  ROOM_SIZE,  // enum size marker
 };
 
 class GameData;
@@ -32,32 +32,33 @@ Room windaParter(GameData& gameData);
 Room windyTylne(GameData& gameData);
 Room biblioteka(GameData& gameData);
 Room garaz(GameData& gameData);
+Room biblioteka(GameData& gameData);
 Room zewnatrz(GameData& gameData);
 
 class GameData {
-public:
-    Room (* functions[ROOM_SIZE])(GameData&);
-    bool alive = true;
-	bool zaionc = false;
-	bool dziekan_spotted = false;
-    bool winda_repaired = false;
-    std::set<std::string> inventory;
-    Room room;
+ public:
+  Room (*functions[ROOM_SIZE])(GameData&);
+  bool alive = true;
+  bool zaionc = false;
+  bool zaionc_KSI = false;
+  bool dziekan_spotted = false;
+  bool winda_repaired = false;
+  std::set<std::string> inventory;
+  Room room;
 
-    GameData(Room room) {
-        this->room = room;
-        this->functions[KSI] = &ksi;
-        this->functions[KORYTARZ] = &korytarz;
-        this->functions[WC] = &fail;
-        this->functions[SERWEROWNIA] = &fail;
-        this->functions[WINDA_PIETRO] = &windaPietro;
-        this->functions[WINDA_PARTER] = &windaParter;
-        this->functions[WINDY_TYLNE] = &windyTylne;
-        this->functions[BIBLIOTEKA] = &fail;
-        this->functions[GARAZ] = &fail;
-        this->functions[ZEWNATRZ] = &fail;
-        this->functions[FAIL] = &fail;
-    }
+  explicit GameData(Room room) {
+    this->room = room;
+    this->functions[KSI] = &ksi;
+    this->functions[KORYTARZ] = &korytarz;
+    this->functions[WC] = &wc;
+    this->functions[SERWEROWNIA] = &serwerownia;
+    this->functions[WINDA_PIETRO] = &windaPietro;
+    this->functions[WINDA_PARTER] = &windaParter;
+    this->functions[WINDY_TYLNE] = &windyTylne;
+    this->functions[GARAZ] = &garaz;
+    this->functions[ZEWNATRZ] = &fail;
+    this->functions[FAIL] = &fail;
+    this->functions[BIBLIOTEKA] = &biblioteka;
 };
 
 bool yes();
@@ -65,10 +66,13 @@ bool yes_arg (std::string s);
 
 std::string lowercase(std::string str);
 
-void wait_s (unsigned int seconds);
-void wait_ms (unsigned int milliseconds);
+void wait_s(unsigned int secs);
+void wait_ms(unsigned int millisecs);
 
-void print_text (std::string text);
+void dziekan_event(GameData& gameData);
+void zaionc_event(GameData& gameData);
+
+void print_text(std::string text);
 void clear_screen();
 
-#endif //KSI_MAIN_HPP
+#endif  // MAIN_HPP_

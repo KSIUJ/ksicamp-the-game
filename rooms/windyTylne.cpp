@@ -178,4 +178,3 @@ Room windyTylne (GameData& gameData) {
     
     return KORYTARZ;
 }
-
