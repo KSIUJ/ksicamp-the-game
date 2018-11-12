@@ -32,7 +32,6 @@ Room windaParter(GameData& gameData);
 Room windyTylne(GameData& gameData);
 Room biblioteka(GameData& gameData);
 Room garaz(GameData& gameData);
-Room biblioteka(GameData& gameData);
 Room zewnatrz(GameData& gameData);
 
 class GameData {
