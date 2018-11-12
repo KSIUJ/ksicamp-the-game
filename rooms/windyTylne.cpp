@@ -28,6 +28,8 @@ bool lift_repairing_game(GameData& gameData){                    //TODO: Add min
                   << "2. Odpuszczam i przykręcam płytkę z powrotem" << std::endl;
 
         if(yes_arg("1")){
+            std::cout << "Not implemented yet" << std::endl;
+            /*
             std::cout << "Po chwili analizowania kabli stwierdzasz, że jak je poprzesuwasz i odpowiednio połączysz"
                       << " to przyciski powinny zacząć działać" << std::endl;
             
@@ -44,6 +46,8 @@ bool lift_repairing_game(GameData& gameData){                    //TODO: Add min
                 }
                 
             }
+            */
+            return false;
         } else return false;
     } else {
         std::cout<< "Niestety, ale nie masz potrzebnego narzędzia do tego, wróć później jak je zdobędziesz" << std::endl;
@@ -69,7 +73,7 @@ Room wybor_dzialania(GameData& gameData, short i_c){
                             << "Po przyjrzeniu się zauważasz, że w środku musi być jakieś zwarcie" << std::endl << std::endl
                             << "Co robisz?" << std::endl
                             << "1. Próbuję naprawić" << std::endl
-                            << "2. Mam to w dupie i próbuję użyć windy" << std::endl;
+                            << "2. Mam to w głęboko i próbuję użyć windy" << std::endl;
                     
                     do{
                         if(yes_arg("1"))    if(lift_repairing_game(gameData)) gameData.winda_repaired = true;
@@ -77,10 +81,10 @@ Room wybor_dzialania(GameData& gameData, short i_c){
                         else if (yes_arg("1")){
                             if(i_c == 8){
                                 std::cout << "Przypominasz sobie o chińskich korzeniach i stwierdzasz, że za 8 sprawdzeniem winda na pewno będzie działać"
-                                        << std::endl;
+                                          << std::endl;
                                 wait_ms(500);
                                 std::cout << "Naciskasz przycisk przywołania windy i w tym momencie śmiertelnie razi Cię prąd"
-                                        << std::endl;
+                                          << std::endl;
                                 wait_s(1);
                                 gameData.alive = false;
                                 return ZEWNATRZ;
@@ -117,8 +121,10 @@ Room wybor_dzialania(GameData& gameData, short i_c){
                     gameData.alive=false;
                     return ZEWNATRZ;
                 } else {
-                    if(rand()%10>0) return WINDA_PARTER;
-                    else {
+                    if(rand()%10>0) {
+                        std::cout << "Widzisz jak w ostatniej chwili drzwi od windy zamykają się przed zaioncem" << std::endl;
+                        return WINDA_PARTER;
+                    } else {
                         std::cout << "Niestety, ale zaionc był szybszy od windy" << std::endl;
                         gameData.alive=false;
                         return ZEWNATRZ;
@@ -126,8 +132,10 @@ Room wybor_dzialania(GameData& gameData, short i_c){
                 }
             
             } else if(yes_arg("2")) {
-                    if(rand()%10>0) return WINDA_PIETRO;
-                    else {
+                    if(rand()%10>0) {
+                        std::cout << "Widzisz jak w ostatniej chwili drzwi od windy zamykają się przed zaioncem" << std::endl;
+                        return WINDA_PIETRO;
+                    } else {
                         std::cout << "Niestety, ale zaionc był szybszy od windy" << std::endl;
                         gameData.alive=false;
                         return ZEWNATRZ;

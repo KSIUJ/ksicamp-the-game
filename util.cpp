@@ -54,8 +54,7 @@ void print_text (std::string text){
 }
 
 
-void clear_screen()
-{
+void clear_screen(){
 #ifdef WINDOWS
     std::system("cls");
 #else
