@@ -59,10 +59,10 @@ class GameData {
     this->functions[ZEWNATRZ] = &fail;
     this->functions[FAIL] = &fail;
     this->functions[BIBLIOTEKA] = &biblioteka;
+  }
 };
 
-bool yes();
-bool yes_arg (std::string s);
+bool yes(const std::string& s = "yYtT");
 
 std::string lowercase(std::string str);
 
