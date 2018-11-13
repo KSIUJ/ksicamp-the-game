@@ -1,6 +1,6 @@
 #include <algorithm>
-#include <chrono> // std::chrono::microseconds
-#include <thread> // std::this_thread::sleep_for;
+#include <chrono>  // std::chrono::microseconds
+#include <thread>  // std::this_thread::sleep_for;
 #include <cstdlib>
 #include <iostream>
 
@@ -39,13 +39,13 @@ void print_text(std::string text) {
 }
 
 bool yes(const std::string& s) {
-	std::cout << "> "; // prompt, użytkownik wie że czas na jego ruch
+  std::cout << "> ";  // prompt, użytkownik wie że czas na jego ruch
     std::string response;
     std::cin >> response;
     return strchr(s.c_str(), response[0]) != nullptr;
 }
 
-void clear_screen(){
+void clear_screen() {
 #ifdef WINDOWS
     std::system("cls");
 #else
