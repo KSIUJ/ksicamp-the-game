@@ -1,11 +1,12 @@
 language: python
+dist: xenial
 python: "3.5"
 install: pip install cpplint
 
 addons:
   apt:
     sources:
-      - ubuntu-toolchain-r-test
+      - sourceline: "ppa:ubuntu-toolchain-r/test"
     packages:
       - gcc-8
       - g++-8
