@@ -50,6 +50,6 @@ void clear_screen(){
     std::system("cls");
 #else
     // Assume POSIX
-    void(std::system("clear"));
+    std::cout << "\033[2J";
 #endif
 }
