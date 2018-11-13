@@ -22,6 +22,7 @@ FIXFILES :=  $(CODESOURCES:$(srcdir)/%=$(builddir)/%.fix)
 TARGET := $(outdir)/ksicamp-the-game
 INSTALLTARGET := /usr/local/bin/ksicamp-the-game
 CLANGTIDYOPTS := --checks='-*,bugprone-*,cert-*,cppcoreguidelines-*,-cppcoreguidelines-pro-*,clang-analyzer-*,modernize-*,performance-*,portability-*,readability-*'
+CPPLINTOPTS := --filter "-legal/copyright,-runtime/references,-build/c++11" --linelength=120
 
 all: $(TARGET)
 
@@ -53,7 +54,7 @@ $(builddir)/%.cxx.d: $(srcdir)/%.cpp
 $(builddir)/%.lint: $(srcdir)/%
 	@echo Lint checking file $<
 	@mkdir -p "$(@D)"
-	cpplint --filter "-legal/copyright,-runtime/references,-build/c++11" $<
+	cpplint $(CPPLINTOPTS) $<
 	clang-tidy -quiet $(CLANGTIDYOPTS) $< 2>/dev/null
 	@touch $@
 
@@ -62,7 +63,7 @@ $(builddir)/%.fix: $(srcdir)/%
 	@mkdir -p "$(@D)"
 	clang-format -style=Google -i $<
 	clang-tidy -quiet $(CLANGTIDYOPTS) -fix -format-style=Google $< 2>/dev/null
-	cpplint --filter "-legal/copyright,-runtime/references,-build/c++11" $<
+	cpplint $(CPPLINTOPTS) $<
 	@touch $@
 
 clean:
