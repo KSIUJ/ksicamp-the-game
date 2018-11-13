@@ -50,6 +50,6 @@ void clear_screen(){
     std::system("cls");
 #else
     // Assume POSIX
-    (void)std::system("clear");
+    void(std::system("clear"));
 #endif
 }
