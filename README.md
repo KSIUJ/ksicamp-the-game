@@ -8,18 +8,18 @@ $ ./ksicamp-the-game
 ```
 ### Option 2: use make
 ```
-make
+$ make
 ```
 
 ## Code quality checks
 ### Requirements:
 * clang (including clang-tidy and clang-format)
-* cpplint (`sudo pip install cpplint`)
+* cpplint (`$ pip install --user cpplint`)
 ### Check code quality:
 ```
-make lint
+$ make lint
 ```
 ### Auto-fix (fixes only trivial issues)
 ```
-make fix
+$ make fix
 ```
