@@ -1,9 +1,27 @@
 #include <algorithm>
 #include <chrono>  // std::chrono::microseconds
 #include <iostream>
+#include <string>
 #include <thread>  // std::this_thread::sleep_for;
 
 #include "main.hpp"
+
+std::string RoomToString(int RoomId) {
+  std::string roomStrings[] = {
+  "KSI",
+  "KORYTARZ",
+  "SERWEROWNIA",
+  "WC",
+  "WINDA (PIĘTRO)",
+  "WINDA (PARTER)",
+  "WINDA (TYLNA)",
+  "GARAŻ",
+  "ZEWNĄTRZ",
+  "BIBLIOTEKA",
+  "FAIL"
+  };
+  return roomStrings[RoomId];
+}
 
 Room fail(GameData& gameData) {
   std::cout << "Ten pokój nie istnieje. Spadłeś w pustkę. Elo." << std::endl;
