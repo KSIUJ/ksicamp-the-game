@@ -35,7 +35,7 @@ Room gps(const std::string S, const int N, ...) {
   print_text(S);
   
   for (int i=0; i<N; ++i) {
-    std::cout << RoomToString(v[i]) << std::endl;
+    std::cout << i+1 << ") " << RoomToString(v[i]) << std::endl;
   }
 
   int tmp;
