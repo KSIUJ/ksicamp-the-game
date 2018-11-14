@@ -83,6 +83,7 @@ Room korytarz(GameData& gameData) {
           WC,
           WINDA_PIETRO,
           WINDY_TYLNE);
-  } else
+  } else {
     return KORYTARZ;
+  }
 }
