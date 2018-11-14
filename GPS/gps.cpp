@@ -5,30 +5,12 @@
 
 #include "gps.hpp"
 
-std::string RoomToString(int RoomId) {
-  std::string roomStrings[] = {
-  "KSI",
-  "KORYTARZ",
-  "SERWEROWNIA",
-  "WC",
-  "WINDA (PIĘTRO)",
-  "WINDA (PARTER)",
-  "WINDA (TYLNA)",
-  "GARAŻ",
-  "ZEWNĄTRZ",
-  "BIBLIOTEKA",
-  "FAIL"
-  };
-  return roomStrings[RoomId];
-}
-
-
 Room gps(const std::string S, const int N, ...) {
   va_list args;
   va_start(args, N);
 
   std::vector<int> v;
-  for (int i=1; i <= N; ++i) {
+  for (int i=0; i < N; ++i) {
     v.push_back(va_arg(args, int));  // Room is promoted to int in ...
   }
   va_end(args);
