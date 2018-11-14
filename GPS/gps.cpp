@@ -11,11 +11,11 @@ std::string RoomToString(int RoomId) {
   "KORYTARZ",
   "SERWEROWNIA",
   "WC",
-  "WINDA_PIETRO",
-  "WINDA_PARTER",
-  "WINDY_TYLNE",
-  "GARAZ",
-  "ZEWNATRZ",
+  "WINDA (PIĘTRO)",
+  "WINDA (PARTER)",
+  "WINDA (TYLNA)",
+  "GARAŻ",
+  "ZEWNĄTRZ",
   "BIBLIOTEKA",
   "FAIL"
   };

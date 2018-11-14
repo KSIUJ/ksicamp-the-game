@@ -2,7 +2,9 @@
 #include <unordered_map>
 
 #include "../main.hpp"
+#include "../GPS/gps.hpp"
 
+/*
 class DestinationMap {
   std::unordered_map<std::string, Room> destination_map;
 
@@ -50,6 +52,7 @@ Room leave_korytarz() {
               << std::endl;
   }
 }
+*/
 
 Room korytarz(GameData& gameData) {
   std::cout << (gameData.zaionc ? "Goni Cię zając. Uciekasz" : "Idziesz");
@@ -72,7 +75,14 @@ Room korytarz(GameData& gameData) {
   }
 
   if (gameData.alive) {
-    return leave_korytarz();
-  }
-  { return KORYTARZ; }
+    return gps(
+          "Jesteś na korytarzu. Gdzie się udasz?",
+          5,
+          KSI,
+          SERWEROWNIA,
+          WC,
+          WINDA_PIETRO,
+          WINDY_TYLNE);
+  } else
+    return KORYTARZ;
 }
