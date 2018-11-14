@@ -53,7 +53,7 @@ Room sekretariat(GameData& gameData) {
                   <<" Zrezygnowany opuszczasz sekretariat, chowając wniosek do kieszeni." <<std::endl
                   <<"Wiesz, że you gotta catch'em all" <<  std::endl;
                     gameData.inventory.insert("wniosek");
-        //tak jak pisałem, możnaby w innych pokojach zdobywać podpis Szufy i Kawy i potem coś by się działo,
+        //tak jak pisałem, możnaby w innych pokojach zdobywać podpis i potem coś by się działo,
         // ale nie wiem czy chcecie ciągnąc ten pomysł
         return WINDA_PIETRO;
     }
