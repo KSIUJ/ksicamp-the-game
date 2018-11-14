@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "../main.hpp"
+#include "../GPS/gps.hpp"
 
 Room ksi(GameData& gameData) {
   if (gameData.zaionc) {
