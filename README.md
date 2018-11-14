@@ -4,7 +4,7 @@
 
 ### Option 1: Compile by hand
 ```
-$ g++ --std=c++11 -g -Wall -fsanitize=undefined -fsanitize=address -D_GLIBCXX_DEBUG -o ksicamp-the-game main.cpp util.cpp rooms/*.cpp events/*.cpp
+$ mkdir bin; g++ --std=c++11 -g -Wall -fsanitize=undefined -fsanitize=address -D_GLIBCXX_DEBUG -o bin/ksicamp-the-game main.cpp util.cpp rooms/*.cpp events/*.cpp
 ```
 
 ### Option 2: Use make
@@ -14,7 +14,7 @@ $ make
 
 ## Running the game
 ```
-$ ./ksicamp-the-game
+$ bin/ksicamp-the-game
 ```
 
 ## Checking code quality
