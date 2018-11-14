@@ -209,6 +209,4 @@ Room windyTylne(GameData& gameData) {
   int8_t idiot_counter = 0;
 
   return choose_room(gameData, idiot_counter);
-
-  return KORYTARZ;
 }
