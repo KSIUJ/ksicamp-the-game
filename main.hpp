@@ -72,4 +72,6 @@ void zaionc_event(GameData& gameData);
 
 void print_text(std::string text);
 
+#include "GPS/gps.hpp"
+
 #endif  // MAIN_HPP_
