@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 
 #include "main.hpp"
 
@@ -26,6 +27,8 @@ void finish(GameData& gameData) {
 
 int main() {
   start();
+
+  srand(time(nullptr));
 
   GameData gameData(KSI);
   do {
