@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "../main.hpp"
+#include "../GPS/gps.hpp"
 
 Room ksi(GameData& gameData) {
   if (gameData.zaionc) {
@@ -43,5 +44,5 @@ Room ksi(GameData& gameData) {
 
   std::cout << "Wychodzisz na korytarz przed KSI." << std::endl;
 
-  return KORYTARZ;
+  return gps("Dokąd idziesz?", 2, KSI, KORYTARZ);
 }
