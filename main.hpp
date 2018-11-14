@@ -15,8 +15,8 @@ enum Room {
   WINDY_TYLNE,
   GARAZ,
   ZEWNATRZ,
-  FAIL,
   BIBLIOTEKA,
+  FAIL,
   ROOM_SIZE,  // enum size marker
 };
 
