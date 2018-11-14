@@ -44,5 +44,5 @@ Room ksi(GameData& gameData) {
 
   std::cout << "Wychodzisz na korytarz przed KSI." << std::endl;
 
-  return gps("Dokąd idziesz?", 2, KSI, KORYTARZ);
+  return KORYTARZ;
 }
