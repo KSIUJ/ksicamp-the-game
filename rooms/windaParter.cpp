@@ -28,5 +28,5 @@ Room windaParter(GameData& gameData) {
   wait_s(2);
   std::cout << std::endl;
 
-  return gps("Dokąd idziesz?", 2, WINDA_PARTER, KORYTARZ);
+  return gps("Dokąd idziesz?", 3, WINDA_PARTER, KORYTARZ, ZEWNATRZ);
 }
