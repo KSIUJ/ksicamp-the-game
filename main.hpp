@@ -20,6 +20,23 @@ enum Room {
   ROOM_SIZE,  // enum size marker
 };
 
+std::string RoomToString(int RoomId) {
+  std::string roomStrings[] = {
+  "KSI",
+  "KORYTARZ",
+  "SERWEROWNIA",
+  "WC",
+  "WINDA (PIĘTRO)",
+  "WINDA (PARTER)",
+  "WINDA (TYLNA)",
+  "GARAŻ",
+  "ZEWNĄTRZ",
+  "BIBLIOTEKA",
+  "FAIL"
+  };
+  return roomStrings[RoomId];
+}
+
 class GameData;
 
 Room fail(GameData& gameData);
@@ -71,7 +88,5 @@ void dziekan_event(GameData& gameData);
 void zaionc_event(GameData& gameData);
 
 void print_text(std::string text);
-
-#include "GPS/gps.hpp"
 
 #endif  // MAIN_HPP_
