@@ -90,8 +90,10 @@ template <typename C, typename... Args>
 int responsive_menu(C c, Args... args) {
   std::cout << c << std::endl;
   return responsive_menu_tech(1, args...);
+}
+
 bool yes(const std::string& s) {
-  std::cout << "> ";  // prompt, użytkownik wie że czas na jego ruch
+  std::cout << "> ";
   std::string response;
   std::cin >> response;
   return strchr(s.c_str(), response[0]) != nullptr;
