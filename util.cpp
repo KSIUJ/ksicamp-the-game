@@ -60,20 +60,19 @@ void print_text(std::string text) {
 }
 
 int choice(int n) {
-  std::string response;
+  int response;
   std::cout << "> ";
   std::cin >> response;
 
-  if (n < 10) {
-    if (isdigit(response[0]) != 0) {
-      if ((static_cast<int>(response[0]) - 48) <= n) {
-        return response[0];
-      }
-      { return 0; }
+  if (std::cin.good()) {
+    if (response <= n) {
+      return response;
     } else {
       return 0;
     }
   } else {
+    std::cin.clear();
+    std::cin.sync();
     return 0;
   }
 }
