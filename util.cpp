@@ -1,8 +1,9 @@
 #include <algorithm>
 #include <chrono>  // std::chrono::microseconds
-#include <iostream>
 #include <string>
 #include <thread>  // std::this_thread::sleep_for;
+#include <cstdlib>
+#include <iostream>
 
 #include "main.hpp"
 
@@ -26,13 +27,6 @@ Room fail(GameData& gameData) {
   gameData.alive = false;
 
   return ZEWNATRZ;
-}
-
-bool yes() {
-  std::cout << ">";  // prompt, użytkownik wie że czas na jego ruch
-  std::string response;
-  std::cin >> response;
-  return strchr("YyTt", response[0]) != nullptr;
 }
 
 std::string lowercase(std::string str) {
@@ -96,4 +90,19 @@ template <typename C, typename... Args>
 int responsive_menu(C c, Args... args) {
   std::cout << c << std::endl;
   return responsive_menu_tech(1, args...);
+bool yes(const std::string& s) {
+  std::cout << "> ";  // prompt, użytkownik wie że czas na jego ruch
+  std::string response;
+  std::cin >> response;
+  return strchr(s.c_str(), response[0]) != nullptr;
+}
+
+void clear_screen() {
+#ifdef _WIN32
+  std::system("cls");
+#endif
+
+#ifdef unix
+  std::cout << "\033[2J";
+#endif
 }

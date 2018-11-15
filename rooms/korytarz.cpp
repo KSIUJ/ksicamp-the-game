@@ -32,7 +32,6 @@ static DestinationMap destination_map;
 
 Room leave_korytarz() {
   std::string destination;
-
   while (true) {
     std::cout << "Dokąd dalej?" << std::endl
               << "1) Serwerownia" << std::endl

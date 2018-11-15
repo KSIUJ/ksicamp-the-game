@@ -3,6 +3,7 @@
 
 #include <cctype>
 #include <cstring>
+#include <random>
 #include <set>
 #include <string>
 
@@ -33,8 +34,8 @@ Room serwerownia(GameData& gameData);
 Room windaPietro(GameData& gameData);
 Room windaParter(GameData& gameData);
 Room windyTylne(GameData& gameData);
-Room garaz(GameData& gameData);
 Room biblioteka(GameData& gameData);
+Room garaz(GameData& gameData);
 Room zewnatrz(GameData& gameData);
 
 class GameData {
@@ -44,6 +45,7 @@ class GameData {
   bool zaionc = false;
   bool zaionc_KSI = false;
   bool dziekan_spotted = false;
+  bool winda_repaired = false;
   std::set<std::string> inventory;
   Room room;
 
@@ -63,7 +65,7 @@ class GameData {
   }
 };
 
-bool yes();
+bool yes(const std::string& s = "yYtT");
 
 std::string lowercase(std::string str);
 
@@ -74,6 +76,7 @@ void dziekan_event(GameData& gameData);
 void zaionc_event(GameData& gameData);
 
 void print_text(std::string text);
+void clear_screen();
 
 int choice(int n);
 
