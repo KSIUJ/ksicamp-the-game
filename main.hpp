@@ -81,7 +81,7 @@ int responsive_menu_tech(X x, T t);
 template <typename X, typename T, typename... Args>
 int responsive_menu_tech(X x, T t, Args... args);
 
-template <typename... Args>
-int responsive_menu(Args... args);
+template <typename C, typename... Args>
+int responsive_menu(C c, Args... args);
 
 #endif  // MAIN_HPP_
