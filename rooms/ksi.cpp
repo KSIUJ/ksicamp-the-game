@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "../main.hpp"
+#include "../GPS/gps.hpp"
 
 Room ksi(GameData& gameData) {
   if (gameData.zaionc) {
@@ -33,7 +34,6 @@ Room ksi(GameData& gameData) {
     if (yes()) {
       std::cout << "Wziąłeś pizzę i wsadziłeś do kieszeni." << std::endl;
       gameData.inventory.insert("pizza");
-      clear_screen();
     } else {
       std::cout << "Nic innego tu nie ma."
                 << (gameData.zaionc_KSI ? ""

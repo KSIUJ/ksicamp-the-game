@@ -6,7 +6,7 @@
 #include <set>
 #include <string>
 
-enum Room {
+enum Room {  // UWAGA! robisz coś tu? popraw w util.cpp RoomToString!
   KSI,
   KORYTARZ,
   SERWEROWNIA,
@@ -16,10 +16,12 @@ enum Room {
   WINDY_TYLNE,
   GARAZ,
   ZEWNATRZ,
-  FAIL,
   BIBLIOTEKA,
+  FAIL,
   ROOM_SIZE,  // enum size marker
 };
+
+std::string RoomToString(int RoomId);
 
 class GameData;
 

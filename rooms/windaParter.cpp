@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "../main.hpp"
+#include "../GPS/gps.hpp"
 
 Room windaParter(GameData& gameData) {
   if (gameData.zaionc) {
@@ -27,15 +28,5 @@ Room windaParter(GameData& gameData) {
   wait_s(2);
   std::cout << std::endl;
 
-  std::cout << "Czy chcesz wyjść na zewnątrz?" << std::endl;
-  if (yes()) {
-    return ZEWNATRZ;
-  }
-    std::cout << "Czy chcesz wrócić na korytarz?" << std::endl;
-    if (yes()) {
-      return KORYTARZ;
-    }
-    { return WINDA_PARTER; }
-
-    return FAIL;
+  return gps("Dokąd idziesz?", 3, WINDA_PARTER, KORYTARZ, ZEWNATRZ);
 }
