@@ -32,13 +32,29 @@ static DestinationMap destination_map;
 
 Room leave_korytarz() {
   std::string destination;
+<<<<<<< HEAD
 
+<<<<<<< HEAD
+    while(true){
+        std::cout << "Dokąd dalej?" << std::endl
+                    << "1) Serwerownia" << std::endl
+                    << "2) WC" << std::endl
+                    << "3) Winda" << std::endl
+                    << "4) KSI" << std::endl
+                    << "5) Windy tylne" << std::endl;
+        
+        std::cin  >> destination;
+        std::cout << "Idziesz w stronę " << destination << std::endl;
+=======
+=======
+>>>>>>> 368f095... Fuck lint
   while (true) {
     std::cout << "Dokąd dalej?" << std::endl
               << "1) Serwerownia" << std::endl
               << "2) WC" << std::endl
               << "3) Winda" << std::endl
               << "4) KSI" << std::endl;
+>>>>>>> 7063c8ca02e2ae8f9d116061d5dc74b6a852952c
 
     std::cin >> destination;
     std::cout << "Idziesz w stronę " << destination << std::endl;
