@@ -75,6 +75,8 @@ void zaionc_event(GameData& gameData);
 
 void print_text(std::string text);
 
+int choice(int n);
+
 template <typename X, typename T>
 int responsive_menu_tech(X x, T t);
 
