@@ -1,14 +1,9 @@
 #include <algorithm>
 #include <chrono>  // std::chrono::microseconds
-<<<<<<< HEAD
-=======
-#include <iostream>
 #include <string>
 #include <thread>  // std::this_thread::sleep_for;
->>>>>>> 0685ed830a10f6ce586bb2f96e5012c438699860
 #include <cstdlib>
 #include <iostream>
-#include <thread>  // std::this_thread::sleep_for;
 
 #include "main.hpp"
 
