@@ -1,8 +1,8 @@
 #include <iostream>
 #include <unordered_map>
 
-#include "../main.hpp"
 #include "../GPS/gps.hpp"
+#include "../main.hpp"
 
 /*
 class DestinationMap {
@@ -75,15 +75,8 @@ Room korytarz(GameData& gameData) {
   }
 
   if (gameData.alive) {
-    return gps(
-          "Jesteś na korytarzu. Gdzie się udasz?",
-          5,
-          KSI,
-          SERWEROWNIA,
-          WC,
-          WINDA_PIETRO,
-          WINDY_TYLNE);
-  } else {
-    return KORYTARZ;
+    return gps("Jesteś na korytarzu. Gdzie się udasz?", 5, KSI, SERWEROWNIA, WC,
+               WINDA_PIETRO, WINDY_TYLNE);
   }
+    return KORYTARZ;
 }

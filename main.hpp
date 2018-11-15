@@ -1,6 +1,7 @@
 #ifndef MAIN_HPP_
 #define MAIN_HPP_
 
+#include <cctype>
 #include <cstring>
 #include <set>
 #include <string>
@@ -73,5 +74,14 @@ void dziekan_event(GameData& gameData);
 void zaionc_event(GameData& gameData);
 
 void print_text(std::string text);
+
+template <typename X, typename T>
+int responsive_menu_tech(X x, T t);
+
+template <typename X, typename T, typename... Args>
+int responsive_menu_tech(X x, T t, Args... args);
+
+template <typename... Args>
+int responsive_menu(Args... args);
 
 #endif  // MAIN_HPP_
