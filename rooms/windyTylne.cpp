@@ -93,118 +93,137 @@ Room choose_room(GameData& gameData, int8_t inside_idiot_counter) {
 
     if (!gameData.zaionc) {
       input_prompt(choice);
-      if (choice[0] == '1') {
-        if (!gameData.winda_repaired) {
-          std::cout << "Widzisz, migotające co jakiś czas, podświetlenie "
-                       "przycisku przywołania windy o jasnoniebieskim kolorze"
-                    << std::endl
-                    << "Po przyjrzeniu się zauważasz, że w środku musi być "
-                       "jakieś zwarcie"
-                    << std::endl
-                    << std::endl
-                    << "Co robisz?" << std::endl
-                    << "1. Próbuję naprawić" << std::endl
-                    << "2. Mam to w głęboko i próbuję użyć windy" << std::endl;
+      switch (choice[0]) {
+        case '1':
+          if (!gameData.winda_repaired) {
+            std::cout << "Widzisz, migotające co jakiś czas, podświetlenie "
+                         "przycisku przywołania windy o jasnoniebieskim kolorze"
+                      << std::endl
+                      << "Po przyjrzeniu się zauważasz, że w środku musi być "
+                         "jakieś zwarcie"
+                      << std::endl
+                      << std::endl
+                      << "Co robisz?" << std::endl
+                      << "1. Próbuję naprawić" << std::endl
+                      << "2. Mam to w głęboko i próbuję użyć windy"
+                      << std::endl;
 
-          do {
-            input_prompt(choice);
-            if (choice[0] == '1') {
-              std::cout << "Not implemented yet" << std::endl;
-              return WINDY_TYLNE;
-              // if(lift_repairing_game(gameData)) gameData.winda_repaired =
-              // true;
-            }
-            if (choice[0] == '2') {
-              if (inside_idiot_counter == 8) {
-                std::cout << "Przypominasz sobie o chińskich korzeniach i "
-                             "stwierdzasz, że za 8 sprawdzeniem winda na pewno "
-                             "będzie działać"
-                          << std::endl;
-                wait_ms(500);
-                std::cout << "Naciskasz przycisk przywołania windy i w tym "
-                             "momencie śmiertelnie razi Cię prąd"
-                          << std::endl;
-                wait_s(1);
-                gameData.alive = false;
-                return ZEWNATRZ;
+            do {
+              input_prompt(choice);
+              if (choice[0] == '1') {
+                std::cout << "Not implemented yet" << std::endl;
+                return WINDY_TYLNE;
+                // if(lift_repairing_game(gameData)) gameData.winda_repaired =
+                // true;
               }
+              if (choice[0] == '2') {
+                if (inside_idiot_counter == 8) {
+                  std::cout
+                      << "Przypominasz sobie o chińskich korzeniach i "
+                         "stwierdzasz, że za 8 sprawdzeniem winda na pewno "
+                         "będzie działać"
+                      << std::endl;
+                  wait_ms(500);
+                  std::cout << "Naciskasz przycisk przywołania windy i w tym "
+                               "momencie śmiertelnie razi Cię prąd"
+                            << std::endl;
+                  wait_s(1);
+                  gameData.alive = false;
+                  return ZEWNATRZ;
+                }
 
-              std::cout << "Ślepy, czy głupi? Popsuta jest." << std::endl;
-              wait_s(1);
-              inside_idiot_counter++;
-            } else {
-              std::cout << "No debil no" << std::endl << std::endl;
-            }
-          } while (choice[0] != '1' && choice[0] != '2');
-        } else {
-          return WINDA_PARTER;
-        }
+                std::cout << "Ślepy, czy głupi? Popsuta jest." << std::endl;
+                wait_s(1);
+                inside_idiot_counter++;
+              } else {
+                std::cout << "No debil no" << std::endl << std::endl;
+              }
+            } while (choice[0] != '1' && choice[0] != '2');
+          } else {
+            return WINDA_PARTER;
+          }
+          break;
 
-      } else if (choice[0] == '2') {
-        return WINDA_PIETRO;
+        case '2':
+          return WINDA_PIETRO;
+          break;
 
-      } else if (choice[0] == '3') {
-        return BIBLIOTEKA;
+        case '3':
+          return BIBLIOTEKA;
+          break;
 
-      } else if (choice[0] == '4') {
-        return GARAZ;
+        case '4':
+          return GARAZ;
+          break;
 
-      } else if (choice[0] == '5') {
-        return KORYTARZ;
+        case '5':
+          return KORYTARZ;
+          break;
 
-      } else {  // TODO(seqre): Add waving "hand"
-        std::cout << std::endl
-                  << std::endl
-                  << "To nie jest miejsce, którego szukasz" << std::endl
-                  << "*Obi-Wan Kenobi's hand wave*" << std::endl
-                  << "Wybierz raz jeszcze..." << std::endl
-                  << "...tym razem mądrze, jeśli można." << std::endl
-                  << std::endl;
+        default:  // TODO(seqre): Add waving "hand"
+          std::cout << std::endl
+                    << std::endl
+                    << "To nie jest miejsce, którego szukasz" << std::endl
+                    << "*Obi-Wan Kenobi's hand wave*" << std::endl
+                    << "Wybierz raz jeszcze..." << std::endl
+                    << "...tym razem mądrze, jeśli można." << std::endl
+                    << std::endl;
+          break;
       }
     } else {
       input_prompt(choice);
-      if (choice[0] == '1') {
-        if (!gameData.winda_repaired) {
-          std::cout << "Jesteś debil, bo zamiast uciekać sprawdzasz windę"
+      switch (choice[0]) {
+        case '1':
+          if (!gameData.winda_repaired) {
+            std::cout << "Jesteś debil, bo zamiast uciekać sprawdzasz windę"
+                      << std::endl;
+            gameData.alive = false;
+            return ZEWNATRZ;
+          } else if (rand_val(gen) % 10 > 0) {
+            std::cout << "Widzisz jak w ostatniej chwili drzwi od windy "
+                      << "zamykają się przed zaioncem" << std::endl;
+            return WINDA_PARTER;
+          } else {
+            std::cout << "Niestety, ale zaionc był szybszy od windy"
+                      << std::endl;
+            gameData.alive = false;
+            return ZEWNATRZ;
+          }
+          break;
+
+        case '2':
+          if (rand_val(gen) % 10 > 0) {
+            std::cout
+                << "Widzisz jak w ostatniej chwili drzwi od windy zamykają "
+                   "się przed zaioncem"
+                << std::endl;
+            return WINDA_PIETRO;
+          } else {
+            std::cout << "Niestety, ale zaionc był szybszy od windy"
+                      << std::endl;
+            gameData.alive = false;
+            return ZEWNATRZ;
+          }
+          break;
+
+        case '3':
+          return BIBLIOTEKA;
+          break;
+
+        case '4':
+          return GARAZ;
+          break;
+
+        case '5':
+          return KORYTARZ;
+          break;
+
+        default:
+          std::cout << "Twoje niezdecydowanie działa na korzyść zaionca"
                     << std::endl;
           gameData.alive = false;
           return ZEWNATRZ;
-        }
-        if (rand_val(gen) % 10 > 0) {
-          std::cout << "Widzisz jak w ostatniej chwili drzwi od windy "
-                       "zamykają się przed zaioncem"
-                    << std::endl;
-          return WINDA_PARTER;
-        }
-        std::cout << "Niestety, ale zaionc był szybszy od windy" << std::endl;
-        gameData.alive = false;
-        return ZEWNATRZ;
-      }
-      if (choice[0] == '2') {
-        if (rand_val(gen) % 10 > 0) {
-          std::cout << "Widzisz jak w ostatniej chwili drzwi od windy zamykają "
-                       "się przed zaioncem"
-                    << std::endl;
-          return WINDA_PIETRO;
-        }
-        std::cout << "Niestety, ale zaionc był szybszy od windy" << std::endl;
-        gameData.alive = false;
-        return ZEWNATRZ;
-      }
-      if (choice[0] == '3') {
-        return BIBLIOTEKA;
-
-      } else if (choice[0] == '4') {
-        return GARAZ;
-
-      } else if (choice[0] == '5') {
-        return KORYTARZ;
-
-      } else {
-        std::cout << "Twoje niezdecydowanie działa na korzyść zaionca"
-                  << std::endl;
-        gameData.alive = false;
-        return ZEWNATRZ;
+          break;
       }
     }
   }
