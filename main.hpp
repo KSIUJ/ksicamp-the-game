@@ -2,6 +2,7 @@
 #define MAIN_HPP_
 
 #include <cstring>
+#include <random>
 #include <set>
 #include <string>
 

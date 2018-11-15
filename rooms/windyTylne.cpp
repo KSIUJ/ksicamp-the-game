@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include <iostream>
+#include <random>
 #include <string>
 
 #include "../main.hpp"
@@ -64,14 +65,19 @@ bool lift_repairing_game(GameData& gameData) {  // TODO(seqre): Add minigame
     }
     return false;
   }
-    std::cout << "Niestety, ale nie masz potrzebnego narzędzia do tego, wróć "
-                 "później jak je zdobędziesz"
-              << std::endl;
-    return false;
+  std::cout << "Niestety, ale nie masz potrzebnego narzędzia do tego, wróć "
+               "później jak je zdobędziesz"
+            << std::endl;
+  return false;
 }
 
 Room choose_room(GameData& gameData, int8_t inside_idiot_counter) {
   std::string choice;
+
+  std::random_device rd;
+  std::mt19937 gen(rd());
+  std::uniform_int_distribution<> rand_val(0, 9);
+
   while (true) {
     std::cout << "Co robisz?" << std::endl;
     wait_ms(200);
@@ -156,7 +162,6 @@ Room choose_room(GameData& gameData, int8_t inside_idiot_counter) {
       }
     } else {
       input_prompt(choice);
-      unsigned seed1, seed2;
       if (choice[0] == '1') {
         if (!gameData.winda_repaired) {
           std::cout << "Jesteś debil, bo zamiast uciekać sprawdzasz windę"
@@ -164,7 +169,7 @@ Room choose_room(GameData& gameData, int8_t inside_idiot_counter) {
           gameData.alive = false;
           return ZEWNATRZ;
         }
-        if (rand_r(&seed1) % 10 > 0) {
+        if (rand_val(gen) % 10 > 0) {
           std::cout << "Widzisz jak w ostatniej chwili drzwi od windy "
                        "zamykają się przed zaioncem"
                     << std::endl;
@@ -175,7 +180,7 @@ Room choose_room(GameData& gameData, int8_t inside_idiot_counter) {
         return ZEWNATRZ;
       }
       if (choice[0] == '2') {
-        if (rand_r(&seed2) % 10 > 0) {
+        if (rand_val(gen) % 10 > 0) {
           std::cout << "Widzisz jak w ostatniej chwili drzwi od windy zamykają "
                        "się przed zaioncem"
                     << std::endl;
@@ -184,7 +189,8 @@ Room choose_room(GameData& gameData, int8_t inside_idiot_counter) {
         std::cout << "Niestety, ale zaionc był szybszy od windy" << std::endl;
         gameData.alive = false;
         return ZEWNATRZ;
-      } else if (choice[0] == '3') {
+      }
+      if (choice[0] == '3') {
         return BIBLIOTEKA;
 
       } else if (choice[0] == '4') {

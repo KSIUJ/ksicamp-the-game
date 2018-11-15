@@ -34,10 +34,11 @@ Room ksi(GameData& gameData) {
       std::cout << "Wziąłeś pizzę i wsadziłeś do kieszeni." << std::endl;
       gameData.inventory.insert("pizza");
     } else {
-    std::cout << "Nic innego tu nie ma."
-              << (gameData.zaionc_KSI ? ""
-                                      : "Jakiś Phoe śpi w na kanapie w kącie.")
-              << std::endl;
+      std::cout << "Nic innego tu nie ma."
+                << (gameData.zaionc_KSI
+                        ? ""
+                        : "Jakiś Phoe śpi w na kanapie w kącie.")
+                << std::endl;
     }
   }
 
