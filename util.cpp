@@ -65,7 +65,7 @@ int choice(int n) {
   std::cin >> response;
 
   if (std::cin.good()) {
-    if (response <= n) {
+    if (response > 0 && response <= n ) {
       return response;
     } else {
       return 0;
