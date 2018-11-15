@@ -33,24 +33,16 @@ Room ksi(GameData& gameData) {
     if (yes()) {
       std::cout << "Wziąłeś pizzę i wsadziłeś do kieszeni." << std::endl;
       gameData.inventory.insert("pizza");
-    }
-<<<<<<< HEAD
-    clear_screen();
-    std::cout << "Wychodzisz na korytarz przed KSI." << std::endl;
-    
-    return KORYTARZ;
-}
-=======
-  } else {
-    std::cout << "Nic innego tu nie ma."
-              << (gameData.zaionc_KSI ? ""
-                                      : "Jakiś Phoe śpi w na kanapie w kącie.")
-              << std::endl;
+      clear_screen();
+    } else {
+      std::cout << "Nic innego tu nie ma."
+                << (gameData.zaionc_KSI ? ""
+                                        : "Jakiś Phoe śpi w na kanapie w kącie.")
+                << std::endl;
     }
   }
 
   std::cout << "Wychodzisz na korytarz przed KSI." << std::endl;
->>>>>>> 7063c8ca02e2ae8f9d116061d5dc74b6a852952c
 
   return KORYTARZ;
 }
