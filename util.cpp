@@ -45,10 +45,11 @@ bool yes(const std::string& s) {
 }
 
 void clear_screen() {
-#ifdef WINDOWS
+#ifdef _WIN32
   std::system("cls");
-#else
-  // Assume POSIX
+#endif
+
+#ifdef unix
   std::cout << "\033[2J";
 #endif
 }
