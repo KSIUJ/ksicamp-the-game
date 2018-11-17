@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <string>
 #include "../main.hpp"
 
 Room wc(__attribute__((unused)) GameData& gameData) {
@@ -56,38 +56,20 @@ Room wc(__attribute__((unused)) GameData& gameData) {
 
   if (yes()) {
     std::cout << "To... ";
+    std::string kubki = "NIEUMYTE KUBKI";
     wait_s(1);
-    std::cout << "N";
+
+  for(int i = 0;i < kubki.length(); i++)
+  {
+    std::cout << kubki[i];
     wait_ms(100);
-    std::cout << "I";
-    wait_ms(100);
-    std::cout << "E";
-    wait_ms(100);
-    std::cout << "U";
-    wait_ms(100);
-    std::cout << "M";
-    wait_ms(100);
-    std::cout << "Y";
-    wait_ms(100);
-    std::cout << "T";
-    wait_ms(100);
-    std::cout << "E";
-    wait_ms(100);
-    std::cout << " K";
-    wait_ms(100);
-    std::cout << "U";
-    wait_ms(100);
-    std::cout << "B";
-    wait_ms(100);
-    std::cout << "K";
-    wait_ms(100);
-    std::cout << "I";
+  }
+
+  for(int i = 0; i < 3; i++)
+  {
     wait_ms(50);
     std::cout << "!";
-    wait_ms(50);
-    std::cout << "!";
-    wait_ms(50);
-    std::cout << "!";
+  }
 
     wait_s(2);
 
