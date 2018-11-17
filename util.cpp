@@ -19,6 +19,7 @@ std::string RoomToString(int RoomId) {
   "GARAŻ",
   "ZEWNĄTRZ",
   "BIBLIOTEKA",
+  "SEKRETARIAT",
   "FAIL"
   };
   return roomStrings[RoomId];
