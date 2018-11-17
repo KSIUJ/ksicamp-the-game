@@ -8,17 +8,20 @@
 #include "main.hpp"
 
 std::string RoomToString(int RoomId) {
-  std::string roomStrings[] = {"KSI",
-                               "KORYTARZ",
-                               "SERWEROWNIA",
-                               "WC",
-                               "WINDA (PIĘTRO)",
-                               "WINDA (PARTER)",
-                               "WINDA (TYLNA)",
-                               "GARAŻ",
-                               "ZEWNĄTRZ",
-                               "BIBLIOTEKA",
-                               "FAIL"};
+  std::string roomStrings[] = {
+  "KSI",
+  "KORYTARZ",
+  "SERWEROWNIA",
+  "WC",
+  "WINDA (PIĘTRO)",
+  "WINDA (PARTER)",
+  "WINDA (TYLNA)",
+  "GARAŻ",
+  "ZEWNĄTRZ",
+  "BIBLIOTEKA",
+  "SEKRETARIAT",
+  "FAIL"
+  };
   return roomStrings[RoomId];
 }
 

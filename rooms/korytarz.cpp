@@ -74,8 +74,16 @@ Room korytarz(GameData& gameData) {
   }
 
   if (gameData.alive) {
-    return gps("Jesteś na korytarzu. Gdzie się udasz?", 5, KSI, SERWEROWNIA, WC,
-               WINDA_PIETRO, WINDY_TYLNE);
+    return gps(
+          "Jesteś na korytarzu. Gdzie się udasz?",
+          6,
+          KSI,
+          SERWEROWNIA,
+          WC,
+          WINDA_PIETRO,
+          SEKRETARIAT,
+          WINDY_TYLNE);
+  } else {
+    return KORYTARZ;
   }
-  return KORYTARZ;
 }
