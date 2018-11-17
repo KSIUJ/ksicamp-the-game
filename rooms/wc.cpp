@@ -2,7 +2,8 @@
 #include <string>
 #include "../main.hpp"
 
-Room wc(__attribute__((unused)) GameData& gameData) {
+Room wc(__attribute__((unused)) GameData &gameData)
+{
   std::cout << std::endl;
 
   std::cout << " .************************************ " << std::endl;
@@ -34,7 +35,8 @@ Room wc(__attribute__((unused)) GameData& gameData) {
   std::cout << " *#################################### " << std::endl;
   wait_ms(200);
 
-  std::cout << std::endl << std::endl;
+  std::cout << std::endl
+            << std::endl;
 
   std::cout << "Wchodzisz do WC. " << std::endl;
   wait_s(1);
@@ -54,22 +56,23 @@ Room wc(__attribute__((unused)) GameData& gameData) {
   std::cout << "Czy chcesz zobaczyć co znajduje się w umywalce?" << std::endl;
   wait_s(1);
 
-  if (yes()) {
+  if (yes())
+  {
     std::cout << "To... ";
     std::string kubki = "NIEUMYTE KUBKI";
     wait_s(1);
 
-  for(int i = 0;i < kubki.length(); i++)
-  {
-    std::cout << kubki[i];
-    wait_ms(100);
-  }
+    for (unsigned int i = 0; i < kubki.length(); i++)
+    {
+      std::cout << kubki[i];
+      wait_ms(100);
+    }
 
-  for(int i = 0; i < 3; i++)
-  {
-    wait_ms(50);
-    std::cout << "!";
-  }
+    for (int i = 0; i < 3; i++)
+    {
+      wait_ms(50);
+      std::cout << "!";
+    }
 
     wait_s(2);
 
@@ -78,7 +81,9 @@ Room wc(__attribute__((unused)) GameData& gameData) {
               << "Ciąg dalszy nastąpi xD Tymczasem na korytarzu... ";
     wait_s(2);
     std::cout << std::endl;
-  } else {
+  }
+  else
+  {
     std::cout << "Uciekasz z krzykiem. " << std::endl;
     wait_s(1);
     return KORYTARZ;
