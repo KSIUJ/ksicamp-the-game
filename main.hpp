@@ -6,6 +6,7 @@
 #include <random>
 #include <set>
 #include <string>
+#include <iostream>
 
 enum Room {  // UWAGA! robisz coś tu? popraw w util.cpp RoomToString!
   KSI,
@@ -81,12 +82,26 @@ void clear_screen();
 int choice(int n);
 
 template <typename X, typename T>
-int responsive_menu_tech(X x, T t);
+int responsive_menu_tech(X x, T t) {
+  std::cout << x << ". " << t << std::endl;
+  int wyb = choice(x);
+
+  return (wyb > 0 ? wyb : 0);
+}
 
 template <typename X, typename T, typename... Args>
-int responsive_menu_tech(X x, T t, Args... args);
+int responsive_menu_tech(X x, T t, Args... args) {
+  std::cout << x << ". " << t << std::endl;
+  x++;
+
+  return responsive_menu_tech(x, args...);
+}
 
 template <typename C, typename... Args>
-int responsive_menu(C c, Args... args);
+int responsive_menu(C c, Args... args) {
+  std::cout << c << std::endl;
+
+  return responsive_menu_tech(1, args...);
+}
 
 #endif  // MAIN_HPP_
