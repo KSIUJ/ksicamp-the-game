@@ -57,6 +57,7 @@ int choice(int n) {
   int response;
   std::cout << "> ";
   std::cin >> response;
+  std::cout << std::endl;
 
   if (std::cin.good()) {
     if (response > 0 && response <= n) {
@@ -69,29 +70,6 @@ int choice(int n) {
     std::cin.sync();
     return 0;
   }
-}
-
-template <typename X, typename T>
-int responsive_menu_tech(X x, T t) {
-  std::cout << x << ". " << t << std::endl;
-  int wyb = choice(x);
-
-  return (wyb > 0 ? wyb - 48 : 0);
-}
-
-template <typename X, typename T, typename... Args>
-int responsive_menu_tech(X x, T t, Args... args) {
-  std::cout << x << ". " << t << std::endl;
-  x++;
-
-  return responsive_menu_tech(x, args...);
-}
-
-template <typename C, typename... Args>
-int responsive_menu(C c, Args... args) {
-  std::cout << c << std::endl;
-
-  return responsive_menu_tech(1, args...);
 }
 
 bool yes(const std::string& s) {
