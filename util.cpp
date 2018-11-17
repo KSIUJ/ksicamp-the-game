@@ -75,6 +75,7 @@ template <typename X, typename T>
 int responsive_menu_tech(X x, T t) {
   std::cout << x << ". " << t << std::endl;
   int wyb = choice(x);
+
   return (wyb > 0 ? wyb - 48 : 0);
 }
 
@@ -89,6 +90,7 @@ int responsive_menu_tech(X x, T t, Args... args) {
 template <typename C, typename... Args>
 int responsive_menu(C c, Args... args) {
   std::cout << c << std::endl;
+  
   return responsive_menu_tech(1, args...);
 }
 
