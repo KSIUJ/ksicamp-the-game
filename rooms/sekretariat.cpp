@@ -55,12 +55,12 @@ Room sekretariat(GameData& gameData) {
                     gameData.inventory.insert("wniosek");
         //tak jak pisałem, możnaby w innych pokojach zdobywać podpis i potem coś by się działo,
         // ale nie wiem czy chcecie ciągnąc ten pomysł
-        return WINDA_PIETRO;
+        return KORYTARZ;
     }
     else
     {
         std::cout<<"Odpowiedziałeś  Ź L E" << std::endl
                  <<"Mag każe Ci opuścić jego teren w podskokach  :emoticon_cry: " << std::endl;
-    }   return WINDA_PIETRO;
+    }   return KORYTARZ;
     
 }
