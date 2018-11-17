@@ -63,13 +63,11 @@ int choice(int n) {
     if (response > 0 && response <= n) {
       return response;
     }
-      return 0;
-
-  } else {
+    return 0;
+  }
     std::cin.clear();
     std::cin.sync();
     return 0;
-  }
 }
 
 bool yes(const std::string& s) {
