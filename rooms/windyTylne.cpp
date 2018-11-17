@@ -27,6 +27,7 @@ void input_prompt(std::string& s) {
 
 bool lift_repairing_game(GameData& gameData) {  // TODO(seqre): Add minigame
   int choice;
+  
   std::cout << "Po chwili dochodzisz do wniosku, że bez ściągnięcia"
             << "zewnętrznej osłony nic nie zdziałasz" << std::endl;
   if (gameData.inventory.find("śrubokręt") != gameData.inventory.end()) {
@@ -151,12 +152,11 @@ Room choose_room(GameData& gameData, int8_t inside_idiot_counter) {
                 break;
             }
           } while (choice != 1 && choice != 2);
-
         } else {
           return WINDA_PARTER;
         }
         break;
-
+        
       case 2:
         return WINDA_PIETRO;
         break;
@@ -213,7 +213,7 @@ Room choose_room_zaionc(GameData& gameData) {
           return ZEWNATRZ;
         }
         break;
-
+        
       case 2:
         if (rand_val(gen) % 10 > 0) {
           std::cout << "Widzisz jak w ostatniej chwili drzwi od windy zamykają "
