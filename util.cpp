@@ -4,8 +4,6 @@
 #include <iostream>
 #include <string>
 #include <thread>  // std::this_thread::sleep_for;
-#include <cstdlib>
-#include <iostream>
 
 #include "main.hpp"
 
@@ -67,9 +65,9 @@ int choice(int n) {
     }
     return 0;
   }
-    std::cin.clear();
-    std::cin.sync();
-    return 0;
+  std::cin.clear();
+  std::cin.sync();
+  return 0;
 }
 
 bool yes(const std::string& s) {
