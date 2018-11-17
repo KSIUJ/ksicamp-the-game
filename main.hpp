@@ -3,10 +3,10 @@
 
 #include <cctype>
 #include <cstring>
+#include <iostream>
 #include <random>
 #include <set>
 #include <string>
-#include <iostream>
 
 enum Room {  // UWAGA! robisz coś tu? popraw w util.cpp RoomToString!
   KSI,

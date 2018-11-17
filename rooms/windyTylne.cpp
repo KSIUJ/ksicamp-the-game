@@ -36,8 +36,7 @@ bool lift_repairing_game(GameData& gameData) {  // TODO(seqre): Add minigame
         << "Widzisz porwane kable bez izolacji, które czasami się stykając"
         << "tworzą efektowne zwarcia" << std::endl;
 
-    choice = responsive_menu("Co robisz?",
-                             "Naprawiam dalej",
+    choice = responsive_menu("Co robisz?", "Naprawiam dalej",
                              "Odpuszczam i przykręcam płytkę z powrotem");
     if (choice == 1) {
       std::cout << "Not implemented yet" << std::endl;
@@ -81,14 +80,18 @@ std::string concatenate(S s, Args... args) {
 }
 
 int choose_room_text(GameData& gameData) {
-  return responsive_menu("Co robisz?",
-                        (gameData.winda_repaired
-                        ? "Korzystam z windy i zjeżdżam na parter"
-                        : "Podchodzę do windy, by zobaczyć czemu nie działa"),
-                        (concatenate((gameData.zaionc ? "Biegnę" : "Idę"), " do windy z przodu budynku")),
-                        (concatenate((gameData.zaionc ? "Biegnę" : "Idę"), " do biblioteki")),
-                        (concatenate((gameData.zaionc ? "Biegnę" : "Idę"), " do garażu (i robię przyps)")),
-                        (concatenate("Wracam ", (gameData.zaionc ? "biegiem" : ""), "na korytarz")));
+  return responsive_menu(
+      "Co robisz?",
+      (gameData.winda_repaired
+           ? "Korzystam z windy i zjeżdżam na parter"
+           : "Podchodzę do windy, by zobaczyć czemu nie działa"),
+      (concatenate((gameData.zaionc ? "Biegnę" : "Idę"),
+                   " do windy z przodu budynku")),
+      (concatenate((gameData.zaionc ? "Biegnę" : "Idę"), " do biblioteki")),
+      (concatenate((gameData.zaionc ? "Biegnę" : "Idę"),
+                   " do garażu (i robię przyps)")),
+      (concatenate("Wracam ", (gameData.zaionc ? "biegiem" : ""),
+                   "na korytarz")));
 }
 
 Room choose_room(GameData& gameData, int8_t inside_idiot_counter) {
@@ -113,9 +116,9 @@ Room choose_room(GameData& gameData, int8_t inside_idiot_counter) {
                     << std::endl;
 
           do {
-            choice = responsive_menu("Co robisz?",
-                                     "Próbuję naprawić",
-                                     "Nie obchodzi mnie to i próbuję użyć windy");
+            choice =
+                responsive_menu("Co robisz?", "Próbuję naprawić",
+                                "Nie obchodzi mnie to i próbuję użyć windy");
 
             switch (choice) {
               case 1:
