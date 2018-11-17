@@ -1,9 +1,9 @@
 #include <algorithm>
 #include <chrono>  // std::chrono::microseconds
-#include <string>
-#include <thread>  // std::this_thread::sleep_for;
 #include <cstdlib>
 #include <iostream>
+#include <string>
+#include <thread>  // std::this_thread::sleep_for;
 
 #include "main.hpp"
 
@@ -59,11 +59,11 @@ int choice(int n) {
   std::cin >> response;
 
   if (std::cin.good()) {
-    if (response > 0 && response <= n ) {
+    if (response > 0 && response <= n) {
       return response;
-    } else {
-      return 0;
     }
+      return 0;
+
   } else {
     std::cin.clear();
     std::cin.sync();
@@ -90,7 +90,7 @@ int responsive_menu_tech(X x, T t, Args... args) {
 template <typename C, typename... Args>
 int responsive_menu(C c, Args... args) {
   std::cout << c << std::endl;
-  
+
   return responsive_menu_tech(1, args...);
 }
 
