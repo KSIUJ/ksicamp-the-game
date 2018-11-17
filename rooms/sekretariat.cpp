@@ -27,7 +27,7 @@ Room sekretariat(GameData& gameData) {
     wait_s(1);
     std::cout <<".";
     std::cout << std::endl;
-    if(odp == "Pascal" || odp == "pascal" || odp == "PASCAL"){
+    if (odp == "Pascal" || odp == "pascal" || odp == "PASCAL") {
         std::cout << "IT'S VERY EFFECTIVE! " << std::endl
                   << "Odpowiedziałeś dobrze i mag przyznaje Ci rację." << std::endl
                   << "Niespodziewanie rozwiewa twoje wszystkie wątpliwości." << std::endl
@@ -36,7 +36,7 @@ Room sekretariat(GameData& gameData) {
         gameData.inventory.insert("podrecznik_wdi");
 
          std::cout << "Odchodząc, z tylnej kieszeni wypada mu kontrowersyjne zdjęcie słynnego programisty" 
-                   << "znanego jako /Espresso/" << std::endl
+                      "znanego jako /Espresso/" << std::endl
                    << "Podnosisz je? " << std::endl;
         if (yes()) {
             std::cout << "Nie jesteś w stanie patrzeć na zdjęcie, więc szybko chowasz je do kieszeni" << std::endl
@@ -51,10 +51,10 @@ Room sekretariat(GameData& gameData) {
                   << "Do snu przygrywają im bracia Golec (sic!)" << std::endl
                   << "Wiesz, że nikt darmo nie odda swojego miejsca w kolejce." << std::endl;
 
-        if (gameData.inventory.find("pizza") == gameData.inventory.end())
-                    {
-                           std::cout << "Gdybyś tylko miał przy sobie kawałek pizzy... na pewno byś sobie poradził." << std::endl
-                                     << "Obrzydzony koczownikami opuszczasz sekretariat." << std::endl;
+        if (gameData.inventory.find("pizza") == gameData.inventory.end()) {
+                        std::cout << "Gdybyś tylko miał przy sobie kawałek pizzy..." 
+                                  << "na pewno byś sobie poradził." << std::endl
+                                  << "Obrzydzony koczownikami opuszczasz sekretariat." << std::endl;
                         return KORYTARZ;
                     } else { 
                         gameData.inventory.erase("pizza");
@@ -68,7 +68,8 @@ Room sekretariat(GameData& gameData) {
                                   << "Podchodzisz w końcu do upragnionej pani przy biurku." << std::endl
                                   << "Pytasz, czy możesz przepisać się do innej grupy z Programowania 1."<< std::endl
                                   << "Pani patrzy na Ciebie z litością. Prawdziwą kur!#a litością." << std::endl
-                                  << "Dodaje, że wnioski leżą przy drzwiach i musisz skolekcjonować dwa podpisy prowadzących." << std::endl
+                                  << "Dodaje, że wnioski leżą przy drzwiach i "
+                                  << "musisz skolekcjonować dwa podpisy prowadzących." << std::endl
                                   << "#If_that_wasn't_so_obvious" << std::endl
                                   << "Zrezygnowany opuszczasz sekretariat, chowając wniosek do kieszeni." << std::endl
                                   << "Wiesz, że you gotta catch'em all." << std::endl;
@@ -80,14 +81,13 @@ Room sekretariat(GameData& gameData) {
                         return KORYTARZ;
                         // ewidentnie wątek do pociągniecia dalej, jeśli ktoś chciałby się bawić 
                         // w pojedynek między goniącym zającem a studentami, to proszę bardzo (xD)
-                    }
-
-        //tak jak pisałem, możnaby w innych pokojach zdobywać podpis i potem coś by się działo,
+                    }   
+        // tak jak pisałem, możnaby w innych pokojach zdobywać podpis i potem coś by się działo 
         // ale nie wiem czy chcecie ciągnąc ten pomysł
         
     } else {
         std::cout << "Odpowiedziałeś  Ź L E" << std::endl
-                  << "Mag każe Ci opuścić jego teren w podskokach  :emoticon_cry: " << std::endl;
+                  << "Mag każe Ci opuścić jego teren w podskokach  :emoticon_cry:" << std::endl;
     }   return KORYTARZ;
     
 }
