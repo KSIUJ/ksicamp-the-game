@@ -11,6 +11,7 @@ Room garaz(GameData& gameData) {
   if (yes()) {
     std::cout << "W samochodzie siedzi Dziekan. Proponuje podwozke do Kauflanda"
               << std::endl;
+<<<<<<< HEAD
     std::cout << "Korzystasz z propozycji?" << std::endl;
     if(yes()) {
       return ZEWNATRZ;
@@ -20,6 +21,9 @@ Room garaz(GameData& gameData) {
       gameData.alive=false;
       return FAIL;
     }
+=======
+    return ZEWNATRZ;
+>>>>>>> master
   }
 
   std::cout << "Samochod odjezdza, zostajesz w calkowitej ciemnosci."
@@ -30,12 +34,19 @@ Room garaz(GameData& gameData) {
     wait_ms(300);
     std::cout << "TO ZAIONC" << std::endl;
     std::cout << "Nie masz dokad uciec" << std::endl;
+<<<<<<< HEAD
     gameData.alive=false;
     return FAIL;
+=======
+>>>>>>> master
   }
 
   std::cout << "Drzwi garazu sa zamkniete, mozesz tylko wrocic do windy."
             << std::endl;
 
   return WINDY_TYLNE;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> master
