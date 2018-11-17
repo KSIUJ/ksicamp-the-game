@@ -19,7 +19,7 @@ enum Room {  // UWAGA! robisz coś tu? popraw w util.cpp RoomToString!
   BIBLIOTEKA,
   SEKRETARIAT,
   FAIL,
-  ROOM_SIZE,  // enum size marker
+  ROOM_SIZE  // enum size marker
 };
 
 std::string RoomToString(int RoomId);
