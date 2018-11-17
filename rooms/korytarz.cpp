@@ -77,5 +77,5 @@ Room korytarz(GameData& gameData) {
     return gps("Jesteś na korytarzu. Gdzie się udasz?", 5, KSI, SERWEROWNIA, WC,
                WINDA_PIETRO, WINDY_TYLNE);
   }
-    return KORYTARZ;
+  return KORYTARZ;
 }
