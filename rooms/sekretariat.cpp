@@ -1,9 +1,7 @@
 #include <iostream>
 #include <string>
 #include "../main.hpp"
-
 std::string odp;
-
 Room sekretariat(GameData& gameData) {
     std::cout << "Jesteś w sekretariacie." << std::endl
               << "Ledwo zamknąłeś drzwi, a otyły mag w swetrze zagrodził Ci drogę. " << std::endl
@@ -21,7 +19,6 @@ Room sekretariat(GameData& gameData) {
     std::cout <<"." << std::endl
               << "Który język programowania jest najlepszy? " << std::endl
               << "Odpowiadasz: " << std::endl;
-              
     std::cin >> odp;
     wait_s(1);
     std::cout <<".";
@@ -30,9 +27,7 @@ Room sekretariat(GameData& gameData) {
     wait_s(1);
     std::cout <<".";
     std::cout << std::endl;
-
-    if(odp == "Pascal" || odp == "pascal" || odp== "PASCAL")
-    {
+    if(odp == "Pascal" || odp == "pascal" || odp== "PASCAL"){
         std::cout << "IT'S VERY EFFECTIVE! " << std::endl
                   << "Odpowiedziałeś dobrze i mag przyznaje Ci rację." << std::endl
                   << "Niespodziewanie rozwiewa twoje wszystkie wątpliwości." << std::endl
@@ -40,7 +35,8 @@ Room sekretariat(GameData& gameData) {
                   << "<Wstępu do Informatyki> i wręczając, radzi Ci korzystać z niego mądrze." << std::endl;
         gameData.inventory.insert("podrecznik_wdi");
 
-         std::cout << "Odchodząc, z tylnej kieszeni wypada mu kontrowersyjne zdjęcie słynnego programisty znanego jako /Espresso/" << std::endl
+         std::cout << "Odchodząc, z tylnej kieszeni wypada mu kontrowersyjne zdjęcie słynnego programisty" 
+                   << "znanego jako /Espresso/" << std::endl
                    << "Podnosisz je? " << std::endl;
         if (yes()) {
             std::cout << "Nie jesteś w stanie patrzeć na zdjęcie, więc szybko chowasz je do kieszeni" << std::endl
@@ -51,18 +47,16 @@ Room sekretariat(GameData& gameData) {
         }
         wait_s(2);
         std::cout << "Twoim oczom ukazała się długa kolejka studentów czekających po odbiór legitymacji. " << std::endl
-                  << "Miejscami dostrzegasz rozbite namioty i rozpalone ogniska. Do snu przygrywają im bracia Golec (sic!)" << std::endl
-                  << "Wiesz, że nikt darmo nie odda swojego miejsca w kolejce."<< std::endl;
+                  << "Miejscami dostrzegasz rozbite namioty i rozpalone ogniska."
+                  << "Do snu przygrywają im bracia Golec (sic!)" << std::endl
+                  << "Wiesz, że nikt darmo nie odda swojego miejsca w kolejce." << std::endl;
 
         if (gameData.inventory.find("pizza") == gameData.inventory.end())
                     {
                            std::cout << "Gdybyś tylko miał przy sobie kawałek pizzy... na pewno byś sobie poradził." << std::endl
                                      << "Obrzydzony koczownikami opuszczasz sekretariat." << std::endl;
-                        return KORYTARZ;     
-
-                    }
-        else 
-                    { 
+                        return KORYTARZ;
+                    } else { 
                         gameData.inventory.erase("pizza");
                         wait_s(10);
                         std::cout << "Przypominasz sobie, że masz w kieszeni pizze... " << std::endl;
@@ -91,11 +85,9 @@ Room sekretariat(GameData& gameData) {
         //tak jak pisałem, możnaby w innych pokojach zdobywać podpis i potem coś by się działo,
         // ale nie wiem czy chcecie ciągnąc ten pomysł
         
-    }
-    else
-    {
-        std::cout<<"Odpowiedziałeś  Ź L E" << std::endl
-                 <<"Mag każe Ci opuścić jego teren w podskokach  :emoticon_cry: " << std::endl;
+    } else {
+        std::cout << "Odpowiedziałeś  Ź L E" << std::endl
+                  << "Mag każe Ci opuścić jego teren w podskokach  :emoticon_cry: " << std::endl;
     }   return KORYTARZ;
     
 }
