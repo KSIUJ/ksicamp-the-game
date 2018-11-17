@@ -84,7 +84,7 @@ Room sekretariat(GameData& gameData) {
                 << std::endl
                 << "Mądrze wykorzystujesz zamieszanie. ";
       std::cout
-          << "Podchodzisz w końcu do upragnionej paLine ends in whitespaceLine ends in whitespaceni przy biurku." << std::endl
+          << "Podchodzisz w końcu do upragnionej pani przy biurku." << std::endl
           << "Pytasz, czy możesz przepisać się do innej grupy z Programowania "
              "1."
           << std::endl
