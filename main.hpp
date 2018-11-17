@@ -17,7 +17,7 @@ enum Room {  // UWAGA! robisz coś tu? popraw w util.cpp RoomToString!
   GARAZ,
   ZEWNATRZ,
   BIBLIOTEKA,
-  SEKRETARIAT'
+  SEKRETARIAT,
   FAIL,
   ROOM_SIZE,  // enum size marker
 };
