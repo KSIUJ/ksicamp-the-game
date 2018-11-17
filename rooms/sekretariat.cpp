@@ -27,7 +27,7 @@ Room sekretariat(GameData& gameData) {
     wait_s(1);
     std::cout <<".";
     std::cout << std::endl;
-    if(odp == "Pascal" || odp == "pascal" || odp== "PASCAL"){
+    if(odp == "Pascal" || odp == "pascal" || odp == "PASCAL"){
         std::cout << "IT'S VERY EFFECTIVE! " << std::endl
                   << "Odpowiedziałeś dobrze i mag przyznaje Ci rację." << std::endl
                   << "Niespodziewanie rozwiewa twoje wszystkie wątpliwości." << std::endl
