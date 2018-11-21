@@ -7,6 +7,6 @@
 
 #include "../main.hpp"
 
-Room gps(std::string S, int N, ...);
+Room gps(const std::string& S, int N, ...);
 
 #endif  // GPS_GPS_HPP_
