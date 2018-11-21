@@ -26,7 +26,8 @@ void input_prompt(std::string& s) {
 }
 
 bool lift_repairing_game(GameData& gameData) {  // TODO(seqre): Add minigame
-  std::string choice;
+  int choice;
+
   std::cout << "Po chwili dochodzisz do wniosku, że bez ściągnięcia"
             << "zewnętrznej osłony nic nie zdziałasz" << std::endl;
   if (gameData.inventory.find("śrubokręt") != gameData.inventory.end()) {
@@ -34,13 +35,11 @@ bool lift_repairing_game(GameData& gameData) {  // TODO(seqre): Add minigame
         << "Odkręcasz śrubki trzymające ochronną płytkę i ostrożnie ją ściągasz"
         << " podważając śrubokrętem" << std::endl
         << "Widzisz porwane kable bez izolacji, które czasami się stykając"
-        << "tworzą efektowne zwarcia" << std::endl
-        << "Co robisz?" << std::endl
-        << "1. Naprawiam dalej" << std::endl
-        << "2. Odpuszczam i przykręcam płytkę z powrotem" << std::endl;
+        << "tworzą efektowne zwarcia" << std::endl;
 
-    input_prompt(choice);
-    if (choice[0] == '1') {
+    choice = responsive_menu("Co robisz?", "Naprawiam dalej",
+                             "Odpuszczam i przykręcam płytkę z powrotem");
+    if (choice == 1) {
       std::cout << "Not implemented yet" << std::endl;
       /*
       std::cout << "Po chwili analizowania kabli stwierdzasz, że jak je
@@ -71,59 +70,56 @@ bool lift_repairing_game(GameData& gameData) {  // TODO(seqre): Add minigame
   return false;
 }
 
-void choose_room_text(GameData& gameData) {
-  std::cout << "Co robisz?" << std::endl;
-  wait_ms(200);
-  std::cout << (gameData.winda_repaired
-                    ? "1. Korzystam z windy i zjeżdżam na parter"
-                    : "1. Podchodzę do windy, by zobaczyć czemu nie działa")
-            << std::endl
-            << "2. " << (gameData.zaionc ? "Biegnę" : "Idę")
-            << " do windy z przodu budynku" << std::endl
-            << "3. " << (gameData.zaionc ? "Biegnę" : "Idę") << " do biblioteki"
-            << std::endl
-            << "4. " << (gameData.zaionc ? "Biegnę" : "Idę")
-            << " do garażu (i robię przyps)" << std::endl
-            << "5. Wracam " << (gameData.zaionc ? "biegiem" : "")
-            << "na korytarz" << std::endl;
+int choose_room_text(GameData& gameData) {
+  return responsive_menu(
+      "Co robisz?",
+      (gameData.winda_repaired
+           ? "Korzystam z windy i zjeżdżam na parter"
+           : "Podchodzę do windy, by zobaczyć czemu nie działa"),
+      (concatenate((gameData.zaionc ? "Biegnę" : "Idę"),
+                   " do windy z przodu budynku")),
+      (concatenate((gameData.zaionc ? "Biegnę" : "Idę"), " do biblioteki")),
+      (concatenate((gameData.zaionc ? "Biegnę" : "Idę"),
+                   " do garażu (i robię przyps)")),
+      (concatenate("Wracam ", (gameData.zaionc ? "biegiem" : ""),
+                   "na korytarz")));
 }
 
 Room choose_room(GameData& gameData, int8_t inside_idiot_counter) {
-  std::string choice;
+  int choice;
 
   std::random_device rd;
   std::mt19937 gen(rd());
   std::uniform_int_distribution<> rand_val(0, 9);
 
   while (true) {
-    choose_room_text(gameData);
-    input_prompt(choice);
+    choice = choose_room_text(gameData);
+    std::cout << choice << std::endl;
 
-    switch (choice[0]) {
-      case '1':
+    switch (choice) {
+      case 1:
         if (!gameData.winda_repaired) {
           std::cout << "Widzisz, migotające co jakiś czas, podświetlenie "
                     << "przycisku przywołania windy o jasnoniebieskim kolorze"
                     << std::endl
                     << "Po przyjrzeniu się zauważasz, że w środku musi być "
                     << "jakieś zwarcie" << std::endl
-                    << std::endl
-                    << "Co robisz?" << std::endl
-                    << "1. Próbuję naprawić" << std::endl
-                    << "2. Mam to w głęboko i próbuję użyć windy" << std::endl;
+                    << std::endl;
 
           do {
-            input_prompt(choice);
+            choice =
+                responsive_menu("Co robisz?", "Próbuję naprawić",
+                                "Nie obchodzi mnie to i próbuję użyć windy");
 
-            switch (choice[0]) {
-              case '1':
+            switch (choice) {
+              case 1:
                 std::cout << "Not implemented yet" << std::endl;
                 return WINDY_TYLNE;
                 // if(lift_repairing_game(gameData)) gameData.winda_repaired =
                 // true;
                 break;
 
-              case '2':
+              case 2:
                 if (inside_idiot_counter == 8) {
                   std::cout
                       << "Przypominasz sobie o chińskich korzeniach i "
@@ -148,26 +144,25 @@ Room choose_room(GameData& gameData, int8_t inside_idiot_counter) {
                 std::cout << "No debil no" << std::endl << std::endl;
                 break;
             }
-          } while (choice[0] != '1' && choice[0] != '2');
-
+          } while (choice != 1 && choice != 2);
         } else {
           return WINDA_PARTER;
         }
         break;
 
-      case '2':
+      case 2:
         return WINDA_PIETRO;
         break;
 
-      case '3':
+      case 3:
         return BIBLIOTEKA;
         break;
 
-      case '4':
+      case 4:
         return GARAZ;
         break;
 
-      case '5':
+      case 5:
         return KORYTARZ;
         break;
 
@@ -185,18 +180,17 @@ Room choose_room(GameData& gameData, int8_t inside_idiot_counter) {
 }
 
 Room choose_room_zaionc(GameData& gameData) {
-  std::string choice;
+  int choice;
 
   std::random_device rd;
   std::mt19937 gen(rd());
   std::uniform_int_distribution<> rand_val(0, 9);
 
   while (true) {
-    choose_room_text(gameData);
-    input_prompt(choice);
+    choice = choose_room_text(gameData);
 
-    switch (choice[0]) {
-      case '1':
+    switch (choice) {
+      case 1:
         if (!gameData.winda_repaired) {
           std::cout << "Jesteś debil, bo zamiast uciekać sprawdzasz windę"
                     << std::endl;
@@ -213,7 +207,7 @@ Room choose_room_zaionc(GameData& gameData) {
         }
         break;
 
-      case '2':
+      case 2:
         if (rand_val(gen) % 10 > 0) {
           std::cout << "Widzisz jak w ostatniej chwili drzwi od windy zamykają "
                     << "się przed zaioncem" << std::endl;
@@ -225,15 +219,15 @@ Room choose_room_zaionc(GameData& gameData) {
         }
         break;
 
-      case '3':
+      case 3:
         return BIBLIOTEKA;
         break;
 
-      case '4':
+      case 4:
         return GARAZ;
         break;
 
-      case '5':
+      case 5:
         return KORYTARZ;
         break;
       default:

@@ -1,26 +1,24 @@
 #include <algorithm>
 #include <chrono>  // std::chrono::microseconds
-#include <string>
-#include <thread>  // std::this_thread::sleep_for;
 #include <cstdlib>
 #include <iostream>
+#include <string>
+#include <thread>  // std::this_thread::sleep_for;
 
 #include "main.hpp"
 
 std::string RoomToString(int RoomId) {
-  std::string roomStrings[] = {
-  "KSI",
-  "KORYTARZ",
-  "SERWEROWNIA",
-  "WC",
-  "WINDA (PIĘTRO)",
-  "WINDA (PARTER)",
-  "WINDA (TYLNA)",
-  "GARAŻ",
-  "ZEWNĄTRZ",
-  "BIBLIOTEKA",
-  "FAIL"
-  };
+  std::string roomStrings[] = {"KSI",
+                               "KORYTARZ",
+                               "SERWEROWNIA",
+                               "WC",
+                               "WINDA (PIĘTRO)",
+                               "WINDA (PARTER)",
+                               "WINDA (TYLNA)",
+                               "GARAŻ",
+                               "ZEWNĄTRZ",
+                               "BIBLIOTEKA",
+                               "FAIL"};
   return roomStrings[RoomId];
 }
 
@@ -55,8 +53,25 @@ void print_text(std::string text) {
   std::cout << std::endl;
 }
 
+int choice(int n) {
+  int response;
+  std::cout << "> ";
+  std::cin >> response;
+  std::cout << std::endl;
+
+  if (std::cin.good()) {
+    if (response > 0 && response <= n) {
+      return response;
+    }
+    return 0;
+  }
+  std::cin.clear();
+  std::cin.sync();
+  return 0;
+}
+
 bool yes(const std::string& s) {
-  std::cout << "> ";  // prompt, użytkownik wie że czas na jego ruch
+  std::cout << "> ";
   std::string response;
   std::cin >> response;
   return strchr(s.c_str(), response[0]) != nullptr;
