@@ -104,4 +104,14 @@ int responsive_menu(C c, Args... args) {
   return responsive_menu_tech(1, args...);
 }
 
+template <typename S>
+std::string concatenate(S s) {
+  return s;
+}
+
+template <typename S, typename... Args>
+std::string concatenate(S s, Args... args) {
+  return (s + concatenate(args...));
+}
+
 #endif  // MAIN_HPP_
