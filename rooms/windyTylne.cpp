@@ -70,16 +70,6 @@ bool lift_repairing_game(GameData& gameData) {  // TODO(seqre): Add minigame
   return false;
 }
 
-template <typename S>
-std::string concatenate(S s) {
-  return s;
-}
-
-template <typename S, typename... Args>
-std::string concatenate(S s, Args... args) {
-  return (s + concatenate(args...));
-}
-
 int choose_room_text(GameData& gameData) {
   return responsive_menu(
       "Co robisz?",
