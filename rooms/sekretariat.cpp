@@ -74,12 +74,9 @@ Room sekretariat(GameData& gameData) {
       return KORYTARZ;
     }
       gameData.inventory.erase("pizza");
-      wait_s(10);
       std::cout << "Przypominasz sobie, że masz w kieszeni pizze... "
                 << std::endl;
-      wait_s(3);
       std::cout << "Już wiesz co masz robić... " << std::endl;
-      wait_s(4);
       std::cout << "Rzucasz kawałek pizzy w kierunku wygłodzonych studentów. "
                 << std::endl
                 << "Mądrze wykorzystujesz zamieszanie. ";
@@ -99,7 +96,6 @@ Room sekretariat(GameData& gameData) {
                 << std::endl
                 << "Wiesz, że you gotta catch'em all." << std::endl;
       gameData.inventory.insert("wniosek");
-      wait_s(20);
       std::cout << "Już prawie zamknąłeś drzwi, a nagle słyszysz: " << std::endl
                 << "< ON MA WIĘCJE PIZZY, DARMOWA PIZZAAAA!!!  >" << std::endl
                 << "Horda studentów zaczyna Cię gonić, uważaj! " << std::endl;
