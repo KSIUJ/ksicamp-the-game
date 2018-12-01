@@ -82,7 +82,7 @@ int choose_room_text(GameData& gameData) {
       (concatenate((gameData.zaionc ? "Biegnę" : "Idę"),
                    " do garażu (i robię przyps)")),
       (concatenate("Wracam ", (gameData.zaionc ? "biegiem" : ""),
-                   "na korytarz")));
+                   " na korytarz")));
 }
 
 Room choose_room(GameData& gameData, int8_t inside_idiot_counter) {
