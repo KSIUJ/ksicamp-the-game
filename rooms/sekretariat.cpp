@@ -73,42 +73,41 @@ Room sekretariat(GameData& gameData) {
                 << std::endl;
       return KORYTARZ;
     }
-      gameData.inventory.erase("pizza");
-      std::cout << "Przypominasz sobie, że masz w kieszeni pizze... "
-                << std::endl;
-      std::cout << "Już wiesz co masz robić... " << std::endl;
-      std::cout << "Rzucasz kawałek pizzy w kierunku wygłodzonych studentów. "
-                << std::endl
-                << "Mądrze wykorzystujesz zamieszanie. ";
-      std::cout
-          << "Podchodzisz w końcu do upragnionej pani przy biurku." << std::endl
-          << "Pytasz, czy możesz przepisać się do innej grupy z Programowania "
-             "1."
-          << std::endl
-          << "Pani patrzy na Ciebie z litością. Prawdziwą kur!#a litością."
-          << std::endl
-          << "Dodaje, że wnioski leżą przy drzwiach i ";
-      std::cout << "musisz skolekcjonować dwa podpisy prowadzących."
-                << std::endl
-                << "#If_that_wasn't_so_obvious" << std::endl
-                << "Zrezygnowany opuszczasz sekretariat, chowając wniosek do "
-                   "kieszeni."
-                << std::endl
-                << "Wiesz, że you gotta catch'em all." << std::endl;
-      gameData.inventory.insert("wniosek");
-      std::cout << "Już prawie zamknąłeś drzwi, a nagle słyszysz: " << std::endl
-                << "< ON MA WIĘCJE PIZZY, DARMOWA PIZZAAAA!!!  >" << std::endl
-                << "Horda studentów zaczyna Cię gonić, uważaj! " << std::endl;
-      return KORYTARZ;
-      // ewidentnie wątek do pociągniecia dalej, jeśli ktoś chciałby się bawić
-      // w pojedynek między goniącym zającem a studentami, to proszę bardzo (xD)
+    gameData.inventory.erase("pizza");
+    std::cout << "Przypominasz sobie, że masz w kieszeni pizze... "
+              << std::endl;
+    std::cout << "Już wiesz co masz robić... " << std::endl;
+    std::cout << "Rzucasz kawałek pizzy w kierunku wygłodzonych studentów. "
+              << std::endl
+              << "Mądrze wykorzystujesz zamieszanie. ";
+    std::cout
+        << "Podchodzisz w końcu do upragnionej pani przy biurku." << std::endl
+        << "Pytasz, czy możesz przepisać się do innej grupy z Programowania "
+           "1."
+        << std::endl
+        << "Pani patrzy na Ciebie z litością. Prawdziwą kur!#a litością."
+        << std::endl
+        << "Dodaje, że wnioski leżą przy drzwiach i ";
+    std::cout << "musisz skolekcjonować dwa podpisy prowadzących." << std::endl
+              << "#If_that_wasn't_so_obvious" << std::endl
+              << "Zrezygnowany opuszczasz sekretariat, chowając wniosek do "
+                 "kieszeni."
+              << std::endl
+              << "Wiesz, że you gotta catch'em all." << std::endl;
+    gameData.inventory.insert("wniosek");
+    std::cout << "Już prawie zamknąłeś drzwi, a nagle słyszysz: " << std::endl
+              << "< ON MA WIĘCJE PIZZY, DARMOWA PIZZAAAA!!!  >" << std::endl
+              << "Horda studentów zaczyna Cię gonić, uważaj! " << std::endl;
+    return KORYTARZ;
+    // ewidentnie wątek do pociągniecia dalej, jeśli ktoś chciałby się bawić
+    // w pojedynek między goniącym zającem a studentami, to proszę bardzo (xD)
 
     // tak jak pisałem, możnaby w innych pokojach zdobywać podpis i potem coś by
     // się działo ale nie wiem czy chcecie ciągnąc ten pomysł
-  } else {
+  }
     std::cout << "Odpowiedziałeś  Ź L E" << std::endl
               << "Mag każe Ci opuścić jego teren w podskokach  :emoticon_cry:"
               << std::endl;
-  }
+
   return KORYTARZ;
 }
