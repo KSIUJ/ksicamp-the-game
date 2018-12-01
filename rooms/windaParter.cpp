@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "../main.hpp"
 #include "../GPS/gps.hpp"
+#include "../main.hpp"
 
 Room windaParter(GameData& gameData) {
   if (gameData.zaionc) {
@@ -18,10 +18,10 @@ Room windaParter(GameData& gameData) {
     if (yes()) {
       return KORYTARZ;
     }
-      std::cout << "Zaionc Cię dopadł." << std::endl;
-      wait_s(2);
-      gameData.alive = false;
-      return FAIL;
+    std::cout << "Zaionc Cię dopadł." << std::endl;
+    wait_s(2);
+    gameData.alive = false;
+    return FAIL;
   }
 
   std::cout << "Jesteś na parterze.";

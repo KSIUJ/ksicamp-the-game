@@ -1,7 +1,9 @@
 #ifndef MAIN_HPP_
 #define MAIN_HPP_
 
+#include <cctype>
 #include <cstring>
+#include <iostream>
 #include <random>
 #include <set>
 #include <string>
@@ -44,6 +46,7 @@ class GameData {
   bool zaionc = false;
   bool zaionc_KSI = false;
   bool dziekan_spotted = false;
+  bool winda_repaired = false;
   std::set<std::string> inventory;
   Room room;
 
@@ -52,7 +55,7 @@ class GameData {
     this->functions[KSI] = &ksi;
     this->functions[KORYTARZ] = &korytarz;
     this->functions[WC] = &wc;
-    this->functions[SERWEROWNIA] = &fail;
+    this->functions[SERWEROWNIA] = &serwerownia;
     this->functions[WINDA_PIETRO] = &windaPietro;
     this->functions[WINDA_PARTER] = &windaParter;
     this->functions[WINDY_TYLNE] = &windyTylne;
@@ -76,4 +79,38 @@ void zaionc_event(GameData& gameData);
 void print_text(std::string text);
 void clear_screen();
 
+int choice(int n);
+
+template <typename X, typename T>
+int responsive_menu_tech(X x, T t) {
+  std::cout << x << ". " << t << std::endl;
+  int wyb = choice(x);
+
+  return (wyb > 0 ? wyb : 0);
+}
+
+template <typename X, typename T, typename... Args>
+int responsive_menu_tech(X x, T t, Args... args) {
+  std::cout << x << ". " << t << std::endl;
+  x++;
+
+  return responsive_menu_tech(x, args...);
+}
+
+template <typename C, typename... Args>
+int responsive_menu(C c, Args... args) {
+  std::cout << c << std::endl;
+
+  return responsive_menu_tech(1, args...);
+}
+
+template <typename S>
+std::string concatenate(S s) {
+  return s;
+}
+
+template <typename S, typename... Args>
+std::string concatenate(S s, Args... args) {
+  return (s + concatenate(args...));
+}
 #endif  // MAIN_HPP_

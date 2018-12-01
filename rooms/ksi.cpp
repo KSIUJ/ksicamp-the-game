@@ -1,5 +1,6 @@
 #include <iostream>
 
+#include "../GPS/gps.hpp"
 #include "../main.hpp"
 #include "../GPS/gps.hpp"
 
@@ -36,8 +37,9 @@ Room ksi(GameData& gameData) {
       gameData.inventory.insert("pizza");
     } else {
       std::cout << "Nic innego tu nie ma."
-                << (gameData.zaionc_KSI ? ""
-                                        : "Jakiś Phoe śpi w na kanapie w kącie.")
+                << (gameData.zaionc_KSI
+                        ? ""
+                        : "Jakiś Phoe śpi w na kanapie w kącie.")
                 << std::endl;
     }
   }
