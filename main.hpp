@@ -19,6 +19,7 @@ enum Room {  // UWAGA! robisz coś tu? popraw w util.cpp RoomToString!
   GARAZ,
   ZEWNATRZ,
   BIBLIOTEKA,
+  SEKRETARIAT,
   FAIL,
   ROOM_SIZE,  // enum size marker
 };
@@ -38,6 +39,7 @@ Room windyTylne(GameData& gameData);
 Room biblioteka(GameData& gameData);
 Room garaz(GameData& gameData);
 Room zewnatrz(GameData& gameData);
+Room sekretariat(GameData& gameData);
 
 class GameData {
  public:
@@ -63,6 +65,7 @@ class GameData {
     this->functions[ZEWNATRZ] = &fail;
     this->functions[FAIL] = &fail;
     this->functions[BIBLIOTEKA] = &biblioteka;
+    this->functions[SEKRETARIAT] = &sekretariat;
   }
 };
 
